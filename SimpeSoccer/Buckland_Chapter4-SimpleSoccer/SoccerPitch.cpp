@@ -4,7 +4,6 @@
 #include "Common/Game/Region.h"
 #include "Common/2D/Transformations.h"
 #include "Common/2D/Geometry.h"
-#include "SoccerTeam.h"
 #include "Common/Debug/DebugConsole.h"
 #include "Common/Game/EntityManager.h"
 #include "GlobalParamLoader.h"
@@ -51,10 +50,14 @@ SoccerPitch::SoccerPitch(int cx, int cy):m_cxClient(cx),
 						   m_vecWalls);
 
   //create the teams 
-  AIParamLoader* redParams = new AIParamLoader("ParamsAMedium");
-  m_pRedTeam  = new SoccerTeam(m_pRedGoal, m_pBlueGoal, this, SoccerTeam::red, redParams);
-  AIParamLoader* blueParams = new AIParamLoader("ParamsBMedium");
-  m_pBlueTeam = new SoccerTeam(m_pBlueGoal, m_pRedGoal, this, SoccerTeam::blue, blueParams);
+  difficultyFiles[0] = new AIParamLoader("ParamAEasy.ini");
+  difficultyFiles[1] = new AIParamLoader("ParamAMedium.ini");
+  //difficultyFiles[2] = new AIParamLoader("ParamAHard.ini");
+  difficultyFiles[3] = new AIParamLoader("ParamBEasy.ini");
+  difficultyFiles[4] = new AIParamLoader("ParamBMedium.ini");
+  //difficultyFiles[5] = new AIParamLoader("ParamBHard.ini");
+  m_pRedTeam  = new SoccerTeam(m_pRedGoal, m_pBlueGoal, this, SoccerTeam::red, difficultyFiles[1]);
+  m_pBlueTeam = new SoccerTeam(m_pBlueGoal, m_pRedGoal, this, SoccerTeam::blue, difficultyFiles[4]);
 
   //make sure each team knows who their opponents are
   m_pRedTeam->SetOpponents(m_pBlueTeam);
@@ -208,35 +211,17 @@ bool SoccerPitch::Render()
   return true;  
 }
 
-const char* SoccerPitch::GetDifficultyName(int difficultyNumber) 
+void SoccerPitch::SetDifficulty(bool redTeam, int difficulty) 
 {
-	std::ostringstream stream;
-	std::string a;
-	const char* returnstuff;
-
-	switch (difficultyNumber)
+	if (redTeam)
 	{
-		case 0:
-			stream << "ParamsAIEasy" << difficultyNumber << ".ini";
-			a = stream.str();
-			returnstuff = a.c_str();
-			return returnstuff;
-		case 1:
+		m_pRedTeam->m_pParamFile = difficultyFiles[difficulty];
 
-			stream << "ParamsAINormal" << difficultyNumber << ".ini";
-			a = stream.str();
-			returnstuff = a.c_str();
-			return returnstuff;
+	}
+	else
+	{
+		m_pBlueTeam->m_pParamFile = difficultyFiles[difficulty];
 
-		case 2:
-
-			stream << "ParamsAIHard" << difficultyNumber << ".ini";
-			a = stream.str();
-			returnstuff = a.c_str();
-			return returnstuff;
-
-		default:
-			return NULL;
 	}
 }
 

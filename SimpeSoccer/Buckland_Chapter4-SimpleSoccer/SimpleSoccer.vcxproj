@@ -283,10 +283,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="icon1.ico" />
+    <None Include="ParamBEasy.ini" />
     <None Include="Params.ini" />
-    <None Include="ParamsAI1.ini" />
-    <None Include="ParamsAI2.ini" />
-    <None Include="ParamsAIEasy.ini" />
+    <None Include="ParamAMedium.ini" />
+    <None Include="ParamBMedium.ini" />
+    <None Include="ParamAEasy.ini" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Script1.rc">

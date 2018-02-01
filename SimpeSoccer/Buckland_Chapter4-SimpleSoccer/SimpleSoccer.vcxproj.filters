@@ -235,13 +235,16 @@
     <None Include="Params.ini">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="ParamsAI1.ini">
+    <None Include="ParamAEasy.ini">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="ParamsAI2.ini">
+    <None Include="ParamAMedium.ini">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="ParamsAIEasy.ini">
+    <None Include="ParamBMedium.ini">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ParamBEasy.ini">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

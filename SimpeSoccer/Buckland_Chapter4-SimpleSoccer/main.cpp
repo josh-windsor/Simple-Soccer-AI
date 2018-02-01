@@ -6,12 +6,14 @@
 #include "Common/misc/utils.h"
 #include "Common/Time/PrecisionTimer.h"
 #include "SoccerPitch.h"
+#include "SoccerTeam.h"
 #include "Common/misc/Cgdi.h"
 #include "GlobalParamLoader.h"
 #include "Resource.h"
 #include "Common/misc/WindowUtils.h"
 #include "Common/debug/DebugConsole.h"
 #include <conio.h>
+#include "AIParamLoader.h"
 
 
 //--------------------------------- Globals ------------------------------
@@ -204,6 +206,43 @@ LRESULT CALLBACK WindowProc (HWND   hwnd,
 			}
 
 			break;
+			
+		  case '1':
+		  {
+			  g_SoccerPitch->SetDifficulty(true, 0);
+			  break;
+
+		  }
+		  case '2':
+		  {
+			  g_SoccerPitch->SetDifficulty(true, 1);
+			  break;
+
+		  }
+		  case '3':
+		  {
+			  g_SoccerPitch->SetDifficulty(true, 2);
+			  break;
+
+		  }
+		  case 'Q':
+		  {
+			  g_SoccerPitch->SetDifficulty(false, 3);
+			  break;
+
+		  }
+		  case 'W':
+		  {
+			  g_SoccerPitch->SetDifficulty(false, 4);
+			  break;
+
+		  }
+		  case 'E':
+		  {
+			  g_SoccerPitch->SetDifficulty(false, 5);
+			  break;
+
+		  }
 
 		}//end switch
 		

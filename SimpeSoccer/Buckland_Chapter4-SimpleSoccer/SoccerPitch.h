@@ -20,6 +20,8 @@
 #include "Common/2D/Wall2D.h"
 #include "Common/2D/Vector2D.h"
 #include "constants.h"
+#include "SoccerTeam.h"
+
 
 class Region;
 class Goal;
@@ -105,8 +107,11 @@ public:
   void  SetGameOff(){m_bGameOn = false;}
 
 
+  void SetDifficulty(bool blueTeam, int difficulty);
+
 private:
-	const char* GetDifficultyName(int difficultyNumber);
+	
+	AIParamLoader* difficultyFiles[6];
 };
 
 #endif
