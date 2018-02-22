@@ -23,7 +23,8 @@ GoalKeeper::GoalKeeper(SoccerTeam*        home_team,
 					   double              max_force,
 					   double              max_speed,
 					   double              max_turn_rate,
-					   double              scale): PlayerBase(home_team,
+					   double              scale,
+					   double              max_stamina): PlayerBase(home_team,
 															 home_region,
 															 heading,
 															 velocity,
@@ -32,7 +33,8 @@ GoalKeeper::GoalKeeper(SoccerTeam*        home_team,
 															 max_speed,
 															 max_turn_rate,
 															 scale,
-															 PlayerBase::goal_keeper)
+															 PlayerBase::goal_keeper,
+															 max_stamina)
 										 
 										
 {   

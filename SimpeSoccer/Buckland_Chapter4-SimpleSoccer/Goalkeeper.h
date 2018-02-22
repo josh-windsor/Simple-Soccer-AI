@@ -33,15 +33,16 @@ private:
 public:
   
    GoalKeeper(SoccerTeam*        home_team,
-              int                home_region,
-              State<GoalKeeper>* start_state,
-              Vector2D           heading,
-              Vector2D           velocity,
-              double              mass,
-              double              max_force,
-              double              max_speed,
-              double              max_turn_rate,
-              double              scale);
+			  int                home_region,
+			  State<GoalKeeper>* start_state,
+			  Vector2D           heading,
+			  Vector2D           velocity,
+			  double              mass,
+			  double              max_force,
+			  double              max_speed,
+			  double              max_turn_rate,
+			  double              scale,
+			  double			  max_stamina);
 
    ~GoalKeeper(){delete m_pStateMachine;}
 

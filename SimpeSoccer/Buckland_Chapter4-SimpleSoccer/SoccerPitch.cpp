@@ -52,10 +52,10 @@ SoccerPitch::SoccerPitch(int cx, int cy):m_cxClient(cx),
   //create the teams 
   difficultyFiles[0] = new AIParamLoader("ParamAEasy.ini");
   difficultyFiles[1] = new AIParamLoader("ParamAMedium.ini");
-  //difficultyFiles[2] = new AIParamLoader("ParamAHard.ini");
+  difficultyFiles[2] = new AIParamLoader("ParamAHard.ini");
   difficultyFiles[3] = new AIParamLoader("ParamBEasy.ini");
   difficultyFiles[4] = new AIParamLoader("ParamBMedium.ini");
-  //difficultyFiles[5] = new AIParamLoader("ParamBHard.ini");
+  difficultyFiles[5] = new AIParamLoader("ParamBHard.ini");
   m_pRedTeam  = new SoccerTeam(m_pRedGoal, m_pBlueGoal, this, SoccerTeam::red, difficultyFiles[1]);
   m_pBlueTeam = new SoccerTeam(m_pBlueGoal, m_pRedGoal, this, SoccerTeam::blue, difficultyFiles[4]);
 

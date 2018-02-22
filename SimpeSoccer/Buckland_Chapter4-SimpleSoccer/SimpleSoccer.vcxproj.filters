@@ -247,6 +247,12 @@
     <None Include="ParamBEasy.ini">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="ParamAHard.ini">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ParamBHard.ini">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Script1.rc">

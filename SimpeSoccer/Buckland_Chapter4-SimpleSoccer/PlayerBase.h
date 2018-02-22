@@ -30,7 +30,7 @@ class Region;
 
 
 class PlayerBase : public MovingEntity,
-                   public AutoList<PlayerBase>
+				   public AutoList<PlayerBase>
 {
 
 public:
@@ -64,19 +64,22 @@ protected:
   //the buffer for the transformed vertices
   std::vector<Vector2D>   m_vecPlayerVBTrans;
 
+
 public:
 
 
   PlayerBase(SoccerTeam*    home_team,
-             int            home_region,
-             Vector2D       heading,
-             Vector2D       velocity,
-             double          mass,
-             double          max_force,
-             double          max_speed,
-             double          max_turn_rate,
-             double          scale,
-             player_role    role);
+			 int            home_region,
+			 Vector2D       heading,
+			 Vector2D       velocity,
+			 double          mass,
+			 double          max_force,
+			 double          max_speed,
+			 double          max_turn_rate,
+			 double          scale,
+			 player_role    role,
+			 double			 max_stamina
+  );
 
   virtual ~PlayerBase();
 
@@ -152,6 +155,13 @@ public:
   void                     SetHomeRegion(int NewRegion){m_iHomeRegion = NewRegion;}
   SoccerTeam*const         Team()const{return m_pTeam;}
   
+
+
+
+  //Stamina value
+  double				  m_dStaminaRemaining;
+  double				  m_dMaxStamina;
+
 };
 
 

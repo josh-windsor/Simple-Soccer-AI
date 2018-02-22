@@ -357,6 +357,45 @@ void ReturnToHomeRegion::Exit(FieldPlayer* player)
 }
 
 
+//***************************************************************************** FATIGUED
+
+Fatigued* Fatigued::Instance()
+{
+	static Fatigued instance;
+
+	return &instance;
+}
+
+
+void Fatigued::Enter(FieldPlayer* player)
+{
+#ifdef PLAYER_STATE_INFO_ON
+	debug_con << "Player " << player->ID() << " enters fatigued state" << "";
+#endif
+
+	//if the game is not on make sure the target is the center of the player's
+	//home region. This is ensure all the players are in the correct positions
+	//ready for kick off
+	if (!player->Pitch()->GameOn())
+	{
+		player->Steering()->SetTarget(player->HomeRegion()->Center());
+	}
+}
+
+void Fatigued::Execute(FieldPlayer* player)
+{
+	if (player->m_dStaminaRemaining < player->m_dMaxStamina)
+	{
+		player->m_dStaminaRemaining += 0.01;
+	}
+	else
+	{
+		player->GetFSM()->ChangeState(Wait::Instance());
+	}
+
+}
+
+void Fatigued::Exit(FieldPlayer* player) {}
 
 
 //***************************************************************************** WAIT
@@ -496,6 +535,24 @@ void KickBall::Execute(FieldPlayer* player)
   //directly the ball is ahead, the more forceful the kick
   double power = Prm.MaxShootingForce * dot;
 
+  static const double eighthStamina = player->m_dMaxStamina / 8;
+  static const double quartStamina = player->m_dMaxStamina / 4;
+  static const double halfStamina = player->m_dMaxStamina / 2;
+
+  if (player->m_dStaminaRemaining <= eighthStamina)
+  {
+	  power /= 8;
+  }
+  else if (player->m_dStaminaRemaining <= quartStamina)
+  {
+	  power /= 4;
+  }
+  else if (player->m_dStaminaRemaining <= halfStamina)
+  {
+	  power /= 2;
+  }
+
+
   //if it is determined that the player could score a goal from this position
   //OR if he should just kick the ball anyway, the player will attempt
   //to make the shot
@@ -533,6 +590,20 @@ void KickBall::Execute(FieldPlayer* player)
   PlayerBase* receiver = NULL;
 
   power = Prm.MaxPassingForce * dot;
+
+  if (player->m_dStaminaRemaining <= eighthStamina)
+  {
+	  power /= 8;
+  }
+  else if (player->m_dStaminaRemaining <= quartStamina)
+  {
+	  power /= 4;
+  }
+  else if (player->m_dStaminaRemaining <= halfStamina)
+  {
+	  power /= 2;
+  }
+
   
   //test if there are any potential candidates available to receive a pass
   if (player->isThreatened()  &&
@@ -569,15 +640,24 @@ void KickBall::Execute(FieldPlayer* player)
 
 	player->FindSupport();
 
+
 	return;
   }
 
   //cannot shoot or pass, so dribble the ball upfield
   else
   {   
-	player->FindSupport();
+	  player->FindSupport();
+	  
+	  if (player->DistToOppGoal() < 200)
+	  {
+		  player->GetFSM()->ChangeState(Wait::Instance());
+	  }
+	  else
+	  {
+		  player->GetFSM()->ChangeState(Dribble::Instance());
+	  }
 
-	player->GetFSM()->ChangeState(Dribble::Instance());
   }   
 }
 
@@ -604,43 +684,52 @@ void Dribble::Enter(FieldPlayer* player)
 
 void Dribble::Execute(FieldPlayer* player)
 {
-  double dot = player->Team()->HomeGoal()->Facing().Dot(player->Heading());
+	if (player->isThreatened())
+	{
+		player->GetFSM()->ChangeState(KickBall::Instance());
+	}
+	else
+	{
+		double dot = player->Team()->HomeGoal()->Facing().Dot(player->Heading());
 
-  //if the ball is between the player and the home goal, it needs to swivel
-  // the ball around by doing multiple small kicks and turns until the player 
-  //is facing in the correct direction
-  if (dot < 0)
-  {
-	//the player's heading is going to be rotated by a small amount (Pi/4) 
-	//and then the ball will be kicked in that direction
-	Vector2D direction = player->Heading();
+		//if the ball is between the player and the home goal, it needs to swivel
+		// the ball around by doing multiple small kicks and turns until the player 
+		//is facing in the correct direction
+		if (dot < 0)
+		{
+			//the player's heading is going to be rotated by a small amount (Pi/4) 
+			//and then the ball will be kicked in that direction
+			Vector2D direction = player->Heading();
 
-	//calculate the sign (+/-) of the angle between the player heading and the 
-	//facing direction of the goal so that the player rotates around in the 
-	//correct direction
-	double angle = QuarterPi * -1 *
-				 player->Team()->HomeGoal()->Facing().Sign(player->Heading());
+			//calculate the sign (+/-) of the angle between the player heading and the 
+			//facing direction of the goal so that the player rotates around in the 
+			//correct direction
+			double angle = QuarterPi * -1 *
+				player->Team()->HomeGoal()->Facing().Sign(player->Heading());
 
-	Vec2DRotateAroundOrigin(direction, angle);
+			Vec2DRotateAroundOrigin(direction, angle);
 
-	//this value works well whjen the player is attempting to control the
-	//ball and turn at the same time
-	const double KickingForce = 0.8;
+			//this value works well whjen the player is attempting to control the
+			//ball and turn at the same time
+			const double KickingForce = 0.8;
 
-	player->Ball()->Kick(direction, KickingForce);
-  }
+			player->Ball()->Kick(direction, KickingForce);
+		}
 
-  //kick the ball down the field
-  else
-  {
-	player->Ball()->Kick(player->Team()->HomeGoal()->Facing(),
-						 Prm.MaxDribbleForce);  
-  }
+		//kick the ball down the field
+		else
+		{
+			player->Ball()->Kick(player->Team()->HomeGoal()->Facing(),
+				Prm.MaxDribbleForce);
+		}
 
-  //the player has kicked the ball so he must now change state to follow it
-  player->GetFSM()->ChangeState(ChaseBall::Instance());
-	
-  return;  
+		//the player has kicked the ball so he must now change state to follow it
+		player->GetFSM()->ChangeState(ChaseBall::Instance());
+
+		return;
+	}
+
+ 
 }
 
 

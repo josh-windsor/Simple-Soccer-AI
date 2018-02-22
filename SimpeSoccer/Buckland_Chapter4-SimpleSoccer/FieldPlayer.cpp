@@ -30,36 +30,38 @@ FieldPlayer::~FieldPlayer()
 //----------------------------- ctor -------------------------------------
 //------------------------------------------------------------------------
 FieldPlayer::FieldPlayer(SoccerTeam* home_team,
-                      int   home_region,
-                      State<FieldPlayer>* start_state,
-                      Vector2D  heading,
-                      Vector2D velocity,
-                      double    mass,
-                      double    max_force,
-                      double    max_speed,
-                      double    max_turn_rate,
-                      double    scale,
-                      player_role role): PlayerBase(home_team,
-                                                    home_region,
-                                                    heading,
-                                                    velocity,
-                                                    mass,
-                                                    max_force,
-                                                    max_speed,
-                                                    max_turn_rate,
-                                                    scale,
-                                                    role)                                    
+					  int   home_region,
+					  State<FieldPlayer>* start_state,
+					  Vector2D  heading,
+					  Vector2D velocity,
+					  double    mass,
+					  double    max_force,
+					  double    max_speed,
+					  double    max_turn_rate,
+					  double    scale,
+					  player_role role,
+				      double	max_stamina): PlayerBase(home_team,
+													home_region,
+													heading,
+													velocity,
+													mass,
+													max_force,
+													max_speed,
+													max_turn_rate,
+													scale,
+													role,
+													max_stamina)                                    
 {
   //set up the state machine
   m_pStateMachine =  new StateMachine<FieldPlayer>(this);
 
   if (start_state)
   {    
-    m_pStateMachine->SetCurrentState(start_state);
-    m_pStateMachine->SetPreviousState(start_state);
-    m_pStateMachine->SetGlobalState(GlobalPlayerState::Instance());
+	m_pStateMachine->SetCurrentState(start_state);
+	m_pStateMachine->SetPreviousState(start_state);
+	m_pStateMachine->SetGlobalState(GlobalPlayerState::Instance());
 
-    m_pStateMachine->CurrentState()->Enter(this);
+	m_pStateMachine->CurrentState()->Enter(this);
   }    
 
   m_pSteering->SeparationOn();
@@ -84,9 +86,9 @@ void FieldPlayer::Update()
   //braking force
   if (m_pSteering->Force().isZero())
   {
-    const double BrakingRate = 0.8; 
+	const double BrakingRate = 0.8; 
 
-    m_vVelocity = m_vVelocity * BrakingRate;                                     
+	m_vVelocity = m_vVelocity * BrakingRate;                                     
   }
   
   //the steering force's side component is a force that rotates the 
@@ -106,11 +108,45 @@ void FieldPlayer::Update()
   //and recreate m_vSide
   m_vSide = m_vHeading.Perp();
 
+  double speed = m_pSteering->ForwardComponent();
+  if (speed > 0.5)
+  {
+	  if (m_dStaminaRemaining > 0)
+	  {
+		  m_dStaminaRemaining -= 0.1;
+	  }
+  }
+  else if (speed < 0.05)
+  {
+	  if (m_dStaminaRemaining < m_dMaxStamina)
+	  {
+		  m_dStaminaRemaining += 0.01;
+	  }
+  }
+  static const double eighthStamina = m_dMaxStamina / 8;
+  static const double quartStamina = m_dMaxStamina / 4;
+  static const double halfStamina = m_dMaxStamina / 2;
+  if (m_dStaminaRemaining <= eighthStamina)
+  {
+	  //the player has kicked the ball so he must now change state to follow it
+	  GetFSM()->ChangeState(Fatigued::Instance());
+
+  }
+  else if (m_dStaminaRemaining <= quartStamina)
+  {
+	  speed /= 4;
+  }
+  else if (m_dStaminaRemaining <= halfStamina)
+  {
+	  speed /= 2;
+
+  }
+
 
   //now to calculate the acceleration due to the force exerted by
   //the forward component of the steering force in the direction
   //of the player's heading
-  Vector2D accel = m_vHeading * m_pSteering->ForwardComponent() / m_dMass;
+  Vector2D accel = m_vHeading * speed / m_dMass;
 
   m_vVelocity += accel;
 
@@ -124,8 +160,9 @@ void FieldPlayer::Update()
   //enforce a non-penetration constraint if desired
   if(Prm.bNonPenetrationConstraint)
   {
-    EnforceNonPenetrationContraint(this, AutoList<PlayerBase>::GetAllMembers());
+	EnforceNonPenetrationContraint(this, AutoList<PlayerBase>::GetAllMembers());
   }
+  
 }
 
 //-------------------- HandleMessage -------------------------------------
@@ -153,10 +190,10 @@ void FieldPlayer::Render()
 
   //render the player's body
   m_vecPlayerVBTrans = WorldTransform(m_vecPlayerVB,
-                                         Pos(),
-                                         Heading(),
-                                         Side(),
-                                         Scale());
+										 Pos(),
+										 Heading(),
+										 Side(),
+										 Scale());
   gdi->ClosedShape(m_vecPlayerVBTrans);  
   
   //and 'is 'ead
@@ -164,27 +201,27 @@ void FieldPlayer::Render()
   if (Prm.bHighlightIfThreatened && (Team()->ControllingPlayer() == this) && isThreatened()) gdi->YellowBrush();
   gdi->Circle(Pos(), 6);
 
-    
+	
   //render the state
   if (Prm.bStates)
   {  
-    gdi->TextColor(0, 170, 0);
-    gdi->TextAtPos(m_vPosition.x, m_vPosition.y -20, std::string(m_pStateMachine->GetNameOfCurrentState()));
+	gdi->TextColor(0, 170, 0);
+	gdi->TextAtPos(m_vPosition.x, m_vPosition.y -20, std::string(m_pStateMachine->GetNameOfCurrentState()));
   }
 
   //show IDs
   if (Prm.bIDs)
   {
-    gdi->TextColor(0, 170, 0);
-    gdi->TextAtPos(Pos().x-20, Pos().y-20, ttos(ID()));
+	gdi->TextColor(0, 170, 0);
+	gdi->TextAtPos(Pos().x-20, Pos().y-20, ttos(ID()));
   }
 
 
   if (Prm.bViewTargets)
   {
-    gdi->RedBrush();
-    gdi->Circle(Steering()->Target(), 3);
-    gdi->TextAtPos(Steering()->Target(), ttos(ID()));
+	gdi->RedBrush();
+	gdi->Circle(Steering()->Target(), 3);
+	gdi->TextAtPos(Steering()->Target(), ttos(ID()));
   }   
 }
 

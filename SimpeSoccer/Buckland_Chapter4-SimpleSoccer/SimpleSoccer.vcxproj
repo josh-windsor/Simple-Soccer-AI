@@ -283,7 +283,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="icon1.ico" />
+    <None Include="ParamAHard.ini" />
     <None Include="ParamBEasy.ini" />
+    <None Include="ParamBHard.ini" />
     <None Include="Params.ini" />
     <None Include="ParamAMedium.ini" />
     <None Include="ParamBMedium.ini" />

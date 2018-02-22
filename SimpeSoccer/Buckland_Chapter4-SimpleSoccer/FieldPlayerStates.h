@@ -108,6 +108,28 @@ public:
 };
 
 //------------------------------------------------------------------------
+class Fatigued : public State<FieldPlayer>
+{
+private:
+
+	Fatigued() {}
+
+public:
+
+	//this is a singleton
+	static Fatigued* Instance();
+
+	void Enter(FieldPlayer* player);
+
+	void Execute(FieldPlayer* player);
+
+	void Exit(FieldPlayer* player);
+
+	bool OnMessage(FieldPlayer*, const Telegram&) { return false; }
+};
+
+
+//------------------------------------------------------------------------
 class Wait: public State<FieldPlayer>
 {
 private:

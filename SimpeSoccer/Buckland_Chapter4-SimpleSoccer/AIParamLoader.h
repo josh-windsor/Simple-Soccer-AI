@@ -63,6 +63,8 @@ public:
 	GoalKeeperTendingDistance   = GetNextParameterDouble();    
 	GoalKeeperInterceptRange    = GetNextParameterDouble();
 	BallWithinReceivingRange    = GetNextParameterDouble();
+
+	PlayerMaxStamina			= GetNextParameterDouble();
 	
 
 	BallWithinReceivingRangeSq = BallWithinReceivingRange * BallWithinReceivingRange;
@@ -137,6 +139,8 @@ public:
   //how close the ball must be to a receiver before he starts chasing it
   double  BallWithinReceivingRange;
   double  BallWithinReceivingRangeSq;
+
+  double  PlayerMaxStamina;
 
 
 

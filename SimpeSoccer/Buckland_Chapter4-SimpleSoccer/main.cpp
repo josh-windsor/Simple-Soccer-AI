@@ -210,38 +210,38 @@ LRESULT CALLBACK WindowProc (HWND   hwnd,
 		  case '1':
 		  {
 			  g_SoccerPitch->SetDifficulty(true, 0);
+			  debug_con << "Team A Easy Difficulty" << "";
 			  break;
-
 		  }
 		  case '2':
 		  {
 			  g_SoccerPitch->SetDifficulty(true, 1);
+			  debug_con << "Team A Medium Difficulty" << "";
 			  break;
-
 		  }
 		  case '3':
 		  {
 			  g_SoccerPitch->SetDifficulty(true, 2);
+			  debug_con << "Team A Hard Difficulty" << "";
 			  break;
-
 		  }
 		  case 'Q':
 		  {
 			  g_SoccerPitch->SetDifficulty(false, 3);
+			  debug_con << "Team B Easy Difficulty" << "";
 			  break;
-
 		  }
 		  case 'W':
 		  {
 			  g_SoccerPitch->SetDifficulty(false, 4);
+			  debug_con << "Team B Medium Difficulty" << "";
 			  break;
-
 		  }
 		  case 'E':
 		  {
 			  g_SoccerPitch->SetDifficulty(false, 5);
+			  debug_con << "Team B Hard Difficulty" << "";
 			  break;
-
 		  }
 
 		}//end switch
