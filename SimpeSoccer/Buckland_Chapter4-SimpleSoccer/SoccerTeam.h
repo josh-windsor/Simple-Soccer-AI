@@ -173,6 +173,8 @@ public:
   Goal*const           HomeGoal()const{return m_pHomeGoal;}
   Goal*const           OpponentsGoal()const{return m_pOpponentsGoal;}
 
+
+
   SoccerPitch*const    Pitch()const{return m_pPitch;}           
 
   SoccerTeam*const     Opponents()const{return m_pOpponents;}
@@ -205,6 +207,8 @@ public:
 
   bool  InControl()const{if(m_pControllingPlayer)return true; else return false;}
   void  LostControl(){m_pControllingPlayer = NULL;}
+
+
 
   PlayerBase*  GetPlayerFromID(int id)const;
   

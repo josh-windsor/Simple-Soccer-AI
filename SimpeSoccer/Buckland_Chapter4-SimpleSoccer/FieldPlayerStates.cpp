@@ -191,6 +191,26 @@ void ChaseBall::Execute(FieldPlayer* player)
 	
 	return;
   }
+  static float ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
+
+  if (!player->Team()->InControl())
+  {
+	  if (player->Team()->Color() == 1 && (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x < ballCenterx - 100))
+	  {
+		  player->Steering()->SetTarget(player->Ball()->Pos());
+
+		  return;
+	  }
+	  else if (player->Team()->Color() == 0 && (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x > ballCenterx + 100))
+	  {
+		  player->Steering()->SetTarget(player->Ball()->Pos());
+
+		  return;
+
+	  }
+
+  }
+
 																			  
   //if the player is the closest player to the ball then he should keep
   //chasing it
@@ -378,15 +398,15 @@ void Fatigued::Enter(FieldPlayer* player)
 	//ready for kick off
 	if (!player->Pitch()->GameOn())
 	{
-		player->Steering()->SetTarget(player->HomeRegion()->Center());
+		player->GetFSM()->ChangeState(ReturnToHomeRegion::Instance());
 	}
 }
 
 void Fatigued::Execute(FieldPlayer* player)
 {
-	if (player->m_dStaminaRemaining < player->m_dMaxStamina)
+	if (player->m_dStaminaRemaining < player->m_dMaxStamina && player->Pitch()->GameOn())
 	{
-		player->m_dStaminaRemaining += 0.01;
+		player->m_dStaminaRemaining += 0.04;
 	}
 	else
 	{
@@ -459,11 +479,30 @@ void Wait::Execute(FieldPlayer* player)
    //if the ball is nearer this player than any other team member  AND
 	//there is not an assigned receiver AND neither goalkeeper has
 	//the ball, go chase it
-   if (player->isClosestTeamMemberToBall() &&
-	   player->Team()->Receiver() == NULL  &&
+   if (player->Team()->Receiver() == NULL  &&
 	   !player->Pitch()->GoalKeeperHasBall())
    {
-	 player->GetFSM()->ChangeState(ChaseBall::Instance());
+	   static float ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
+
+	   if (!player->Team()->InControl())
+	   {
+		   if (player->Team()->Color() == 1 && (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x < ballCenterx - 100))
+		   {
+			   player->GetFSM()->ChangeState(ChaseBall::Instance());
+		   }
+		   else if (player->Team()->Color() == 0 && (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x > ballCenterx + 100))
+		   {
+			   player->GetFSM()->ChangeState(ChaseBall::Instance());
+
+		   }
+
+	   }
+
+	   if (player->isClosestTeamMemberToBall())
+	   {
+		   player->GetFSM()->ChangeState(ChaseBall::Instance());
+	   }
+
 
 	 return;
    }
@@ -690,11 +729,31 @@ void Dribble::Execute(FieldPlayer* player)
 	}
 	else
 	{
-		double dot = player->Team()->HomeGoal()->Facing().Dot(player->Heading());
 
 		//if the ball is between the player and the home goal, it needs to swivel
 		// the ball around by doing multiple small kicks and turns until the player 
 		//is facing in the correct direction
+		static float ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
+		if (player->Team()->Color() == 0)
+		{
+			float i = player->Pitch()->Ball()->Pos().x;
+			if (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x < ballCenterx - 100)
+			{
+				player->GetFSM()->ChangeState(KickBall::Instance());
+				return;
+			}
+		}
+		else 
+		{
+			if (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x > ballCenterx + 100)
+			{
+				player->GetFSM()->ChangeState(KickBall::Instance());
+				return;
+			}
+		}
+
+		double dot = player->Team()->HomeGoal()->Facing().Dot(player->Heading());
+
 		if (dot < 0)
 		{
 			//the player's heading is going to be rotated by a small amount (Pi/4) 

@@ -1,0 +1,1503 @@
+Player 2 enters wait state
+Player 3 enters wait state
+Player 4 enters wait state
+Player 5 enters wait state
+Player 7 enters wait state
+Player 8 enters wait state
+Player 9 enters wait state
+Player 10 enters wait state
+Player 2 enters chase state
+Player 7 enters chase state
+Player 2 enters kick state
+Goaly has ball / ball behind player
+Player 2 enters chase state
+Player 7 enters kick state
+Player 7 passes the ball with force 2.71195  to player 9  Target is  471.559 301.386
+Player 9 enters receive state (Using Arrive)
+Player 7 enters wait state
+Player 7 enters support state
+Player 9 enters chase state
+Player 9 enters kick state
+Player 9 enters dribble state
+Player 9 enters chase state
+Player 9 enters chase state
+Player 9 enters kick state
+Player 9 enters chase state
+Player 9 enters kick state
+Player 9 enters chase state
+Player 9 enters kick state
+Player 9 enters kick state
+Goaly has ball / ball behind player
+Player 9 enters chase state
+Player 9 enters chase state
+Player 9 enters kick state
+Player 9 enters chase state
+Player 9 enters kick state
+Player 9 enters chase state
+Player 9 enters kick state
+Player 9 enters kick state
+Goaly has ball / ball behind player
+Player 9 enters chase state
+Player 9 enters kick state
+Player 9 passes the ball with force 2.99999  to player 10  Target is  477.809 163.505
+Player 10 enters receive state (Using Arrive)
+Player 9 enters wait state
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 enters chase state
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 enters kick state
+Player 10 enters dribble state
+Player 10 enters chase state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 10 enters kick state
+Player 7 enters ReturnToHome state
+Player 8 enters support state
+Player 10 enters dribble state
+Player 10 enters chase state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 10 enters kick state
+Player 10 enters dribble state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 8 enters ReturnToHome state
+Player 7 enters support state
+Player 10 enters dribble state
+Player 10 enters chase state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 8 enters chase state
+Player 10 enters ReturnToHome state
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 2 enters ReturnToHome state
+Player 3 enters chase state
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 10 received request from 7 to make pass
+Player 10 cannot make requested pass <cannot kick ball>
+Player 3 enters kick state
+Player 7 enters ReturnToHome state
+Player 2 enters support state
+Player 3 enters dribble state
+Player 3 enters chase state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters kick state
+Goaly has ball / ball behind player
+Player 3 enters chase state
+Player 8 enters kick state
+Player 2 enters ReturnToHome state
+Player 8 passes the ball with force 2.59132  to player 7  Target is  284.44 251.142
+Player 7 enters receive state (Using Arrive)
+Player 8 enters wait state
+Player 8 enters support state
+Player 2 enters chase state
+Player 3 enters ReturnToHome state
+Player 3 enters wait state
+Player 10 enters wait state
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 
+7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 enters chase state
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 Passed ball to requesting player
+Player 8 enters receive state (Using Arrive)
+Player 7 enters wait state
+Player 7 enters support state
+Player 8 received request from 8 to make pass
+Player 8 cannot make requested pass <cannot kick ball>
+Player 2 enters ReturnToHome state
+Player 4 enters chase state
+Player 4 enters chase state
+Player 5 enters chase state
+Player 2 enters wait state
+Player 8 enters chase state
+Player 8 enters kick state
+Player 8 enters wait state
+Player 8 enters chase state
+Player 8 enters chase state
+Player 8 enters kick state
+Player 8 enters chase state
+Player 8 enters kick state
+Player 8 enters chase state
+Player 8 enters kick state
+Player 8 enters kick state
+Player 8 attempts a shot at  20 156
+Player 8 enters wait state
+Player 8 enters chase state
+Player 8 enters chase state
+Player 8 enters kick state
+Player 8 enters chase state
+Player 8 enters kick state
+Player 8 enters kick state
+Goaly has ball / ball behind player
+Player 8 enters chase state
+Player 8 enters chase state
+Player 8 enters kick state
+Player 8 enters kick state
+Player 8 attempts a shot at  20 135
+Player 8 enters wait state
+Player 8 enters chase state
+Player 8 enters chase state
+Player 8 enters kick state
+Player 2 enters ReturnToHome state
+Player 3 enters ReturnToHome state
+Player 4 enters ReturnToHome state
+Player 5 enters ReturnToHome state
+Player 7 enters ReturnToHome state
+Player 8 enters ReturnToHome state
+Player 9 enters ReturnToHome state
+Player 10 enters ReturnToHome state
+Player 2 enters wait state
+Player 3 enters wait state
+Player 10 enters wait state
+Player 9 enters wait state
+Player 5 enters wait state
+Player 4 enters wait state
+Player 7 enters wait state
+Player 2 enters chase state
+Player 8 enters chase state
+Player 2 enters kick state
+Player 2 passes the ball with force 2.97466  to player 4  Target is  201.07 295.221
+Player 4 enters receive state (Using Arrive)
+Player 2 enters wait state
+Player 3 enters support state
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 enters chase state
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 5 to make pass
+Player 4 Passed ball to requesting player
+Player 5 enters receive state (Using Arrive)
+Player 4 enters wait state
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 8 enters fatigued state
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 enters chase state
+Player 5 received request from 3 to make pass
+Player 5 cannot make requested pass <cannot kick ball>
+Player 5 received request from 3 to make pass
+Player 5 Passed ball to requesting player
+Player 3 enters receive state (Using Arrive)
+Player 5 enters wait state
+Player 2 enters support state
+Player 7 enters chase state
+Player 7 enters ReturnToHome state
+Player 9 enters chase state
+Player 10 enters chase state
+Player 10 enters chase state
+Player 3 received request from 2 to make pass
+Player 3 cannot make requested pass <cannot kick ball>
+Player 3 received request from 2 to make pass
+Player 3 cannot make requested pass <cannot kick ball>
+Player 
+3 received request from 2 to make pass
+Player 3 cannot make requested pass <cannot kick ball>
+Player 3 received request from 2 to make pass
+Player 3 cannot make requested pass <cannot kick ball>
+Player 3 received request from 2 to make pass
+Player 3 cannot make requested pass <cannot kick ball>
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters dribble state
+Player 8 enters wait state
+Player 3 enters chase state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters kick state
+Goaly has ball / ball behind player
+Player 3 enters chase state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 7 enters wait state
+Player 3 enters kick state
+Player 3 enters dribble state
+Player 3 enters chase state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters kick state
+Player 3 enters dribble state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters dribble state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters kick state
+Player 3 enters wait state
+Player 3 enters chase state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters chase state
+Player 3 enters kick state
+Player 3 enters kick state
+Player 3 enters wait state
+Player 3 enters chase state
+Player 10 enters kick state
+Player 2 enters ReturnToHome state
+Player 9 enters ReturnToHome state
+Player 8 enters support state
+Player 10 enters dribble state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 10 enters kick state
+Player 10 enters dribble state
+Player 10 enters chase state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 10 enters chase state
+Player 10 enters kick state
+Player 9 enters wait state
+Player 2 enters wait state
+Player 10 enters kick state
+Player 10 passes the ball with force 2.52746  to player 7  Target is  485.302 244.78
+Player 7 enters receive state (Using Pursuit)
+Player 10 enters wait state
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 10 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 10 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 10 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 10 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 10 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 10 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 10 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 8 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 10 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 10 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 10 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 received request from 10 to make pass
+Player 7 cannot make requested pass <cannot kick ball>
+Player 7 enters chase state
+Player 7 enters kick state
+Player 7 passes the ball with force 3  to player 9  Target is  601.982 223.857
+Player 9 enters receive state (Using Arrive)
+Player 7 enters wait state
+Player 9 received request from 7 to make pass
+Player 9 cannot make requested pass <cannot kick ball>
+Player 9 received request from 7 to make pass
+Player 9 cannot make requested pass <cannot kick ball>
+Player 9 received request from 7 to make pass
+Player 9 cannot make requested pass <cannot kick ball>
+Player 2 enters chase state
+Player 3 enters ReturnToHome state
+Player 9 received request from 7 to make pass
+Player 9 cannot make requested pass <cannot kick ball>
+Player 9 enters chase state
+Player 3 enters wait state
+Player 9 enters kick state
+Player 9 enters dribble state
+Player 9 enters chase state
+Player 9 enters chase state
+Player 9 enters kick state
+Player 9 enters chase state
+Player 9 enters kick state
+Player 2 enters kick state
+Player 8 enters ReturnToHome state
+Player 10 enters chase state
+Player 3 enters support state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters chase state
+Player 2 enters kick state
+Player 2 enters kick state
+Player 2 attempts a shot at  664 133
+Player 2 enters wait state
+Player 2 enters chase state
+Player 2 enters ReturnToHome state
+Player 3 enters ReturnToHome state
+Player 4 enters ReturnToHome state
+Player 5 enters ReturnToHome state
+Player 7 enters ReturnToHome state
+Player 8 enters ReturnToHome state
+Player 9 enters ReturnToHome state
+Player 10 enters ReturnToHome state
+Player 5 enters wait state
+Player 7 enters receive state (Using Pursuit)
+Player 2 enters chase state
+Player 2 enters ReturnToHome state
+Player 3 enters ReturnToHome state
+Player 4 enters ReturnToHome state
+Player 5 enters ReturnToHome state
+Player 7 enters ReturnToHome state
+Player 8 enters ReturnToHome state
+Player 9 enters ReturnToHome state
+Player 10 enters ReturnToHome state
+Player 5 enters wait state
+Player 7 enters receive state (Using Pursuit)
+Player 2 enters chase state
+Player 4 enters wait state
+Player 7 enters chase state
+Player 10 enters chase state
+Player 7 enters kick state
+Player 8 enters support state
+Player 7 enters dribble state
+Player 7 enters chase state
+Player 7 enters kick state
+Player 7 enters chase state
+Player 7 enters kick state
+Player 7 enters chase state
+Player 7 enters kick state
+Player 7 enters ReturnToHome state
+Player 9 enters wait state
+Player 7 enters chase state
+Player 10 enters ReturnToHome state
+Player 3 enters wait state
+Player 10 enters wait state
+Player 7 enters kick state
+Player 7 enters dribble state
+Player 7 enters chase state
+Player 7 enters chase state
+Player 7 enters kick state
+Player 7 enters chase state
+Player 7 enters kick state
+Player 7 enters kick state
+Player 7 enters dribble state
+Player 7 enters chase state
+Player 7 enters kick state
+Player 7 enters dribble state
+Player 7 enters chase state
+Player 7 enters chase state
+Player 7 enters kick state
+Player 7 enters chase state
+Player 7 enters kick state
+Player 7 enters kick state
+Player 7 enters dribble state
+Player 7 enters chase state
+Player 7 enters chase state
+Player 7 enters kick state
+Player 7 enters chase state
+Player 7 enters kick state
+Player 2 enters ReturnToHome state
+Player 4 enters chase state
+Player 5 enters chase state
+Player 5 enters chase state
+Player 7 enters kick state
+Player 7 enters wait state
+Player 7 enters chase state
+Player 2 enters wait state
+Player 7 enters kick state
+Player 7 passes the ball with force 3  to player 8  Target is  71.6501 243.723
+Player 8 enters receive state (Using Arrive)
+Player 7 enters wait state
+Player 7 enters support state
+Player 8 enters chase state
+Player 7 enters ReturnToHome state
+Player 8 enters ReturnToHome state
+Player 9 enters ReturnToHome state
+Player 10 enters ReturnToHome state
+Player 2 enters ReturnToHome state
+Player 3 enters ReturnToHome state
+Player 4 enters ReturnToHome state
+Player 5 enters ReturnToHome state
+Player 2 enters wait state
+Player 3 enters wait state
+Player 9 enters wait state
+Player 10 enters wait state
+Player 4 enters wait state
+Player 4 enters receive state (Using Pursuit)
+Player 8 enters chase state
+Player 4 received request from 3 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 3 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 3 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 3 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 5 enters wait state
+Player 4 enters chase state
+Player 4 enters kick state
+Player 3 enters support state
+Player 4 enters dribble state
+Player 4 enters chase state
+Player 4 enters kick state
+Player 4 enters chase state
+Player 4 enters kick state
+Player 7 enters wait state
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 4 received request from 2 to make pass
+Player 4 cannot make requested pass <cannot kick ball>
+Player 8 enters kick state
+Player 3 enters ReturnToHome state
+Player 

@@ -84,5 +84,45 @@ public:
   bool OnMessage(SoccerTeam*, const Telegram&){return false;}
 };
 
+class Winning : public State<SoccerTeam>
+{
+private:
+
+	Winning() {}
+
+public:
+
+	//this is a singleton
+	static Winning* Instance();
+
+	void Enter(SoccerTeam* team);
+
+	void Execute(SoccerTeam* team);
+
+	void Exit(SoccerTeam* team);
+
+	bool OnMessage(SoccerTeam*, const Telegram&) { return false; }
+};
+
+class Losing : public State<SoccerTeam>
+{
+private:
+
+	Losing() {}
+
+public:
+
+	//this is a singleton
+	static Losing* Instance();
+
+	void Enter(SoccerTeam* team);
+
+	void Execute(SoccerTeam* team);
+
+	void Exit(SoccerTeam* team);
+
+	bool OnMessage(SoccerTeam*, const Telegram&) { return false; }
+};
+
 
 #endif

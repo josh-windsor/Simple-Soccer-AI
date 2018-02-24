@@ -108,15 +108,28 @@ void FieldPlayer::Update()
   //and recreate m_vSide
   m_vSide = m_vHeading.Perp();
 
-  double speed = m_pSteering->ForwardComponent();
-  if (speed > 0.5)
+
+
+  //now to calculate the acceleration due to the force exerted by
+  //the forward component of the steering force in the direction
+  //of the player's heading
+  Vector2D accel = m_vHeading * m_pSteering->ForwardComponent() / m_dMass;
+  accel.Length();
+
+  m_vVelocity += accel;
+
+  double speed = m_vVelocity.Length();
+
+
+
+  if (speed > 0.6)
   {
 	  if (m_dStaminaRemaining > 0)
 	  {
-		  m_dStaminaRemaining -= 0.1;
+		  m_dStaminaRemaining -= 0.01;
 	  }
   }
-  else if (speed < 0.05)
+  else if (speed < 0.3)
   {
 	  if (m_dStaminaRemaining < m_dMaxStamina)
 	  {
@@ -128,27 +141,31 @@ void FieldPlayer::Update()
   static const double halfStamina = m_dMaxStamina / 2;
   if (m_dStaminaRemaining <= eighthStamina)
   {
-	  //the player has kicked the ball so he must now change state to follow it
+	  //the player has run out of stamina and so will wait
 	  GetFSM()->ChangeState(Fatigued::Instance());
 
   }
   else if (m_dStaminaRemaining <= quartStamina)
   {
-	  speed /= 4;
+	  m_vVelocity /= 1.5;
   }
   else if (m_dStaminaRemaining <= halfStamina)
   {
-	  speed /= 2;
+	  m_vVelocity /= 1.1;
 
   }
 
 
-  //now to calculate the acceleration due to the force exerted by
-  //the forward component of the steering force in the direction
-  //of the player's heading
-  Vector2D accel = m_vHeading * speed / m_dMass;
 
-  m_vVelocity += accel;
+
+
+
+
+
+
+
+
+
 
   //make sure player does not exceed maximum velocity
   m_vVelocity.Truncate(m_dMaxSpeed);
@@ -164,6 +181,7 @@ void FieldPlayer::Update()
   }
   
 }
+
 
 //-------------------- HandleMessage -------------------------------------
 //
@@ -206,14 +224,14 @@ void FieldPlayer::Render()
   if (Prm.bStates)
   {  
 	gdi->TextColor(0, 170, 0);
-	gdi->TextAtPos(m_vPosition.x, m_vPosition.y -20, std::string(m_pStateMachine->GetNameOfCurrentState()));
+	gdi->TextAtPos(m_vPosition.x, m_vPosition.y -20, std::string(m_pStateMachine->GetNameOfCurrentState()) + "\n" + ttos(m_dStaminaRemaining));
   }
 
   //show IDs
   if (Prm.bIDs)
   {
 	gdi->TextColor(0, 170, 0);
-	gdi->TextAtPos(Pos().x-20, Pos().y-20, ttos(ID()));
+	gdi->TextAtPos(Pos().x-20, Pos().y-20, ttos(ID()) );
   }
 
 

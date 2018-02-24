@@ -124,13 +124,31 @@ void SoccerTeam::CalculateClosestPlayerToBall()
 
 	//keep a record of this value for each player
 	(*it)->SetDistSqToBall(dist);
-	
+
+	static float ballCenterx = (double)Pitch()->m_cxClient / 2.0;
+
+	if (m_Color == 0)
+	{
+		if ((*it)->Role() == (*it)->defender && Pitch()->Ball()->Pos().x < ballCenterx || (*it)->Role() == (*it)->attacker && Pitch()->Ball()->Pos().x > ballCenterx + 100)
+		{
+			continue;
+		}
+	}
+	else
+	{
+		if ((*it)->Role() == (*it)->defender && Pitch()->Ball()->Pos().x > ballCenterx || (*it)->Role() == (*it)->attacker && Pitch()->Ball()->Pos().x < ballCenterx - 100)
+		{
+			continue;
+		}
+	}
+
 	if (dist < ClosestSoFar)
 	{
-	  ClosestSoFar = dist;
+		ClosestSoFar = dist;
 
-	  m_pPlayerClosestToBall = *it;
+		m_pPlayerClosestToBall = *it;
 	}
+
   }
 
   m_dDistSqToBallOfClosestPlayer = ClosestSoFar;
@@ -805,7 +823,7 @@ bool SoccerTeam::AllPlayersAtHome()const
 void SoccerTeam::RequestPass(FieldPlayer* requester)const
 {
   //maybe put a restriction here
-  if (RandFloat() > 0.1) return;
+  //if (RandFloat() > 0.1) return;
   
   if (isPassSafeFromAllOpponents(ControllingPlayer()->Pos(),
 								 requester->Pos(),

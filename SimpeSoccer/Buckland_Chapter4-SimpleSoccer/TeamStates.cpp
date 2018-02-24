@@ -5,6 +5,7 @@
 #include "SoccerMessages.h"
 #include "constants.h"
 #include "SoccerPitch.h"
+#include "Goal.h"
 
 //uncomment to send state info to debug window
 //#define DEBUG_TEAM_STATES
@@ -20,6 +21,8 @@ void ChangePlayerHomeRegions(SoccerTeam* team, const int NewRegions[TeamSize])
     team->SetPlayerHomeRegion(plyr, NewRegions[plyr]);
   }
 }
+
+
 
 //************************************************************************ ATTACKING
 
@@ -60,6 +63,14 @@ void Attacking::Enter(SoccerTeam* team)
 
 void Attacking::Execute(SoccerTeam* team)
 {
+	if (team->HomeGoal()->NumGoalsScored() < team->OpponentsGoal()->NumGoalsScored())
+	{
+		team->GetFSM()->ChangeState(Losing::Instance()); return;
+	}
+	else if(team->HomeGoal()->NumGoalsScored() > team->OpponentsGoal()->NumGoalsScored())
+	{
+		team->GetFSM()->ChangeState(Winning::Instance()); return;
+	}
   //if this team is no longer in control change states
   if (!team->InControl())
   {
@@ -114,6 +125,15 @@ void Defending::Enter(SoccerTeam* team)
 
 void Defending::Execute(SoccerTeam* team)
 {
+	if (team->HomeGoal()->NumGoalsScored() < team->OpponentsGoal()->NumGoalsScored())
+	{
+		team->GetFSM()->ChangeState(Losing::Instance()); return;
+	}
+	else if (team->HomeGoal()->NumGoalsScored() > team->OpponentsGoal()->NumGoalsScored())
+	{
+		team->GetFSM()->ChangeState(Winning::Instance()); return;
+	}
+
   //if in control change states
   if (team->InControl())
   {
@@ -159,4 +179,119 @@ void PrepareForKickOff::Exit(SoccerTeam* team)
   team->Pitch()->SetGameOn();
 }
 
+//************************************************************************ KICKOFF
 
+Winning* Winning::Instance()
+{
+	static Winning instance;
+
+	return &instance;
+}
+
+void Winning::Enter(SoccerTeam* team)
+{
+#ifdef DEBUG_TEAM_STATES
+	debug_con << team->Name() << " entering Winning state" << "";
+#endif
+
+	//these define the home regions for this state of each of the players
+	const int BlueRegions[TeamSize] = { 1,12,14,3,5 };
+	const int RedRegions[TeamSize] = { 16,3,5,12,14 };
+
+
+	//set up the player's home regions
+	if (team->Color() == SoccerTeam::blue)
+	{
+		ChangePlayerHomeRegions(team, BlueRegions);
+	}
+	else
+	{
+		ChangePlayerHomeRegions(team, RedRegions);
+	}
+
+	//if a player is in either the Wait or ReturnToHomeRegion states, its
+	//steering target must be updated to that of its new home region
+	team->UpdateTargetsOfWaitingPlayers();
+}
+
+void Winning::Execute(SoccerTeam* team)
+{
+	//if in control change states
+	if (team->HomeGoal()->NumGoalsScored() < team->OpponentsGoal()->NumGoalsScored())
+	{
+		team->GetFSM()->ChangeState(Losing::Instance()); return;
+	}
+	else if(team->HomeGoal()->NumGoalsScored() == team->OpponentsGoal()->NumGoalsScored())
+	{
+		//if in control change states
+		if (team->InControl())
+		{
+			team->GetFSM()->ChangeState(Attacking::Instance()); return;
+		}
+		else
+		{
+			team->GetFSM()->ChangeState(Defending::Instance()); return;
+		}
+	}
+}
+
+
+void Winning::Exit(SoccerTeam* team) {}
+
+//************************************************************************ KICKOFF
+
+Losing* Losing::Instance()
+{
+	static Losing instance;
+
+	return &instance;
+}
+
+void Losing::Enter(SoccerTeam* team)
+{
+#ifdef DEBUG_TEAM_STATES
+	debug_con << team->Name() << " entering Winning state" << "";
+#endif
+
+	//these define the home regions for this state of each of the players
+	const int BlueRegions[TeamSize] = { 1,3,5,0,2 };
+	const int RedRegions[TeamSize] = { 16,12,14,15,17 };
+
+	//set up the player's home regions
+	if (team->Color() == SoccerTeam::blue)
+	{
+		ChangePlayerHomeRegions(team, BlueRegions);
+	}
+	else
+	{
+		ChangePlayerHomeRegions(team, RedRegions);
+	}
+
+	//if a player is in either the Wait or ReturnToHomeRegion states, its
+	//steering target must be updated to that of its new home region
+	team->UpdateTargetsOfWaitingPlayers();
+}
+
+void Losing::Execute(SoccerTeam* team)
+{
+	//if in control change states
+	if (team->HomeGoal()->NumGoalsScored() > team->OpponentsGoal()->NumGoalsScored())
+	{
+		team->GetFSM()->ChangeState(Winning::Instance()); return;
+	}
+	else if (team->HomeGoal()->NumGoalsScored() == team->OpponentsGoal()->NumGoalsScored())
+	{
+		//if in control change states
+		if (team->InControl())
+		{
+			team->GetFSM()->ChangeState(Attacking::Instance()); return;
+		}
+		else
+		{
+			team->GetFSM()->ChangeState(Defending::Instance()); return;
+		}
+	}
+}
+
+
+void Losing::Exit(SoccerTeam* team) {}
