@@ -156,17 +156,6 @@ void FieldPlayer::Update()
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
   //make sure player does not exceed maximum velocity
   m_vVelocity.Truncate(m_dMaxSpeed);
 

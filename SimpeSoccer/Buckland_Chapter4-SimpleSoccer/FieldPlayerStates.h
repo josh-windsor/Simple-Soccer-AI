@@ -214,6 +214,26 @@ public:
   bool OnMessage(FieldPlayer*, const Telegram&){return false;}
 };
 
+//------------------------------------------------------------------------
+class Mark : public State<FieldPlayer>
+{
+private:
+
+	Mark() {}
+
+public:
+
+	//this is a singleton
+	static Mark* Instance();
+
+	void Enter(FieldPlayer* player);
+
+	void Execute(FieldPlayer* player);
+
+	void Exit(FieldPlayer* player);
+
+	bool OnMessage(FieldPlayer*, const Telegram&) { return false; }
+};
 
 
 

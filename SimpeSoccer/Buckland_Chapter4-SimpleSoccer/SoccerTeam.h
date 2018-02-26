@@ -97,6 +97,8 @@ public:
 
   ~SoccerTeam();
 
+  int difficultyLevel = 1;
+
   //the usual suspects
   void        Render()const;
   void        Update();
@@ -155,6 +157,8 @@ public:
 
   //returns true if there is an opponent within radius of position
   bool        isOpponentWithinRadius(Vector2D pos, double rad);
+  PlayerBase*        getOpponentWithinRadius(Vector2D pos, double rad);
+  int        getNumOpponentWithinRadius(Vector2D pos, double rad);
 
   //this tests to see if a pass is possible between the requester and
   //the controlling player. If it is possible a message is sent to the

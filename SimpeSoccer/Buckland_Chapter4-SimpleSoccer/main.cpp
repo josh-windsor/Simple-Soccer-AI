@@ -20,7 +20,7 @@
 //
 //------------------------------------------------------------------------
 
-char* g_szApplicationName = "Simple Soccer";
+char* g_szApplicationName = "Simple Ice Hockey";
 char*	g_szWindowClassName = "MyWindowClass";
 
 SoccerPitch* g_SoccerPitch;
@@ -227,19 +227,19 @@ LRESULT CALLBACK WindowProc (HWND   hwnd,
 		  }
 		  case 'Q':
 		  {
-			  g_SoccerPitch->SetDifficulty(false, 3);
+			  g_SoccerPitch->SetDifficulty(false, 0);
 			  debug_con << "Team B Easy Difficulty" << "";
 			  break;
 		  }
 		  case 'W':
 		  {
-			  g_SoccerPitch->SetDifficulty(false, 4);
+			  g_SoccerPitch->SetDifficulty(false, 1);
 			  debug_con << "Team B Medium Difficulty" << "";
 			  break;
 		  }
 		  case 'E':
 		  {
-			  g_SoccerPitch->SetDifficulty(false, 5);
+			  g_SoccerPitch->SetDifficulty(false, 2);
 			  debug_con << "Team B Hard Difficulty" << "";
 			  break;
 		  }

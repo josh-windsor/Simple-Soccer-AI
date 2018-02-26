@@ -49,6 +49,8 @@ public:
   //defines the dimensions of the playing area
   Region*              m_pPlayingArea;
 
+
+
   //the playing field is broken up into regions that the team
   //can make use of to implement strategies.
   std::vector<Region*> m_Regions;

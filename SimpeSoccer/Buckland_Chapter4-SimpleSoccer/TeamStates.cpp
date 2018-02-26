@@ -63,12 +63,16 @@ void Attacking::Enter(SoccerTeam* team)
 
 void Attacking::Execute(SoccerTeam* team)
 {
+	//check if the team is losing
 	if (team->HomeGoal()->NumGoalsScored() < team->OpponentsGoal()->NumGoalsScored())
 	{
+		team->Pitch()->SetDifficulty(team->Color() == team->red, 2);
 		team->GetFSM()->ChangeState(Losing::Instance()); return;
 	}
+	//check if the team is winning
 	else if(team->HomeGoal()->NumGoalsScored() > team->OpponentsGoal()->NumGoalsScored())
 	{
+		team->Pitch()->SetDifficulty(team->Color() == team->red, 0);
 		team->GetFSM()->ChangeState(Winning::Instance()); return;
 	}
   //if this team is no longer in control change states
@@ -127,10 +131,12 @@ void Defending::Execute(SoccerTeam* team)
 {
 	if (team->HomeGoal()->NumGoalsScored() < team->OpponentsGoal()->NumGoalsScored())
 	{
+		team->Pitch()->SetDifficulty(team->Color() == team->red, 2);
 		team->GetFSM()->ChangeState(Losing::Instance()); return;
 	}
 	else if (team->HomeGoal()->NumGoalsScored() > team->OpponentsGoal()->NumGoalsScored())
 	{
+		team->Pitch()->SetDifficulty(team->Color() == team->red, 0);
 		team->GetFSM()->ChangeState(Winning::Instance()); return;
 	}
 
@@ -219,10 +225,12 @@ void Winning::Execute(SoccerTeam* team)
 	//if in control change states
 	if (team->HomeGoal()->NumGoalsScored() < team->OpponentsGoal()->NumGoalsScored())
 	{
+		team->Pitch()->SetDifficulty(team->Color() == team->red, 2);
 		team->GetFSM()->ChangeState(Losing::Instance()); return;
 	}
 	else if(team->HomeGoal()->NumGoalsScored() == team->OpponentsGoal()->NumGoalsScored())
 	{
+		team->Pitch()->SetDifficulty(team->Color() == team->red, 1);
 		//if in control change states
 		if (team->InControl())
 		{
@@ -277,10 +285,13 @@ void Losing::Execute(SoccerTeam* team)
 	//if in control change states
 	if (team->HomeGoal()->NumGoalsScored() > team->OpponentsGoal()->NumGoalsScored())
 	{
+		team->Pitch()->SetDifficulty(team->Color() == team->red, 0);
 		team->GetFSM()->ChangeState(Winning::Instance()); return;
 	}
 	else if (team->HomeGoal()->NumGoalsScored() == team->OpponentsGoal()->NumGoalsScored())
 	{
+		team->Pitch()->SetDifficulty(team->Color() == team->red, 1);
+
 		//if in control change states
 		if (team->InControl())
 		{

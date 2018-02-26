@@ -127,8 +127,11 @@ void SoccerTeam::CalculateClosestPlayerToBall()
 
 	static float ballCenterx = (double)Pitch()->m_cxClient / 2.0;
 
+	//depending on side
 	if (m_Color == 0)
 	{
+		//If the player is an attacker and the ball is in their home side then dont chase
+		//If the player is a defender and the ball is in their oponents home side then dont chase
 		if ((*it)->Role() == (*it)->defender && Pitch()->Ball()->Pos().x < ballCenterx || (*it)->Role() == (*it)->attacker && Pitch()->Ball()->Pos().x > ballCenterx + 100)
 		{
 			continue;
@@ -140,6 +143,11 @@ void SoccerTeam::CalculateClosestPlayerToBall()
 		{
 			continue;
 		}
+	}
+	//if a player is fatigued, can't chase
+	if ((*it)->Role() != (*it)->goal_keeper && dynamic_cast<FieldPlayer*>(*it)->GetFSM()->CurrentState() == Fatigued::Instance())
+	{
+		continue;
 	}
 
 	if (dist < ClosestSoFar)
@@ -850,16 +858,56 @@ void SoccerTeam::RequestPass(FieldPlayer* requester)const
 //-----------------------------------------------------------------------------
 bool SoccerTeam::isOpponentWithinRadius(Vector2D pos, double rad)
 {
-  std::vector<PlayerBase*>::const_iterator end = Opponents()->Members().end();
-  std::vector<PlayerBase*>::const_iterator it;
+	std::vector<PlayerBase*>::const_iterator end = Opponents()->Members().end();
+	std::vector<PlayerBase*>::const_iterator it;
 
-  for (it=Opponents()->Members().begin(); it !=end; ++it)
-  {
-	if (Vec2DDistanceSq(pos, (*it)->Pos()) < rad*rad)
+	for (it = Opponents()->Members().begin(); it != end; ++it)
 	{
-	  return true;
+		if (Vec2DDistanceSq(pos, (*it)->Pos()) < rad*rad)
+		{
+			return true;
+		}
 	}
-  }
 
-  return false;
+	return false;
 }
+//----------------------------- getOpponentWithinRadius ------------------------
+//
+//  Gets the first player closest to the position
+//-----------------------------------------------------------------------------
+PlayerBase* SoccerTeam::getOpponentWithinRadius(Vector2D pos, double rad)
+{
+	std::vector<PlayerBase*>::const_iterator end = Opponents()->Members().end();
+	std::vector<PlayerBase*>::const_iterator it;
+
+	for (it = Opponents()->Members().begin(); it != end; ++it)
+	{
+		if (Vec2DDistanceSq(pos, (*it)->Pos()) < rad*rad)
+		{
+			return (*it);
+		}
+	}
+
+	return nullptr;
+}
+//----------------------------- getOpponentWithinRadius ------------------------
+//
+//  Gets the first player closest to the position
+//-----------------------------------------------------------------------------
+int SoccerTeam::getNumOpponentWithinRadius(Vector2D pos, double rad)
+{
+	int surrounding = 0;
+	std::vector<PlayerBase*>::const_iterator end = Opponents()->Members().end();
+	std::vector<PlayerBase*>::const_iterator it;
+
+	for (it = Opponents()->Members().begin(); it != end; ++it)
+	{
+		if (Vec2DDistanceSq(pos, (*it)->Pos()) < rad*rad)
+		{
+			surrounding++;
+		}
+	}
+
+	return surrounding;
+}
+

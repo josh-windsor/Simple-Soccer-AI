@@ -191,7 +191,7 @@ void ChaseBall::Execute(FieldPlayer* player)
 	
 	return;
   }
-  static float ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
+  static double ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
 
   if (!player->Team()->InControl())
   {
@@ -208,7 +208,6 @@ void ChaseBall::Execute(FieldPlayer* player)
 		  return;
 
 	  }
-
   }
 
 																			  
@@ -217,7 +216,6 @@ void ChaseBall::Execute(FieldPlayer* player)
   if (player->isClosestTeamMemberToBall())
   {
 	player->Steering()->SetTarget(player->Ball()->Pos());
-
 	return;
   }
   
@@ -482,17 +480,28 @@ void Wait::Execute(FieldPlayer* player)
    if (player->Team()->Receiver() == NULL  &&
 	   !player->Pitch()->GoalKeeperHasBall())
    {
-	   static float ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
+	   static double ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
 
 	   if (!player->Team()->InControl())
 	   {
+		   //if a defender and the ball is on the home side of the pitch, all should chase
 		   if (player->Team()->Color() == 1 && (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x < ballCenterx - 100))
 		   {
 			   player->GetFSM()->ChangeState(ChaseBall::Instance());
+			   return;
+
 		   }
 		   else if (player->Team()->Color() == 0 && (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x > ballCenterx + 100))
 		   {
 			   player->GetFSM()->ChangeState(ChaseBall::Instance());
+			   return;
+		   }
+
+		   //if the there is an oponent close to the goal, mark him
+		   if (player->Role() == player->defender && player->Team()->isOpponentWithinRadius(player->Team()->HomeGoal()->Center(), 300))
+		   {
+			   player->GetFSM()->ChangeState(Mark::Instance());
+			   return;
 
 		   }
 
@@ -730,13 +739,10 @@ void Dribble::Execute(FieldPlayer* player)
 	else
 	{
 
-		//if the ball is between the player and the home goal, it needs to swivel
-		// the ball around by doing multiple small kicks and turns until the player 
-		//is facing in the correct direction
-		static float ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
+		static double ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
 		if (player->Team()->Color() == 0)
 		{
-			float i = player->Pitch()->Ball()->Pos().x;
+			double i = player->Pitch()->Ball()->Pos().x;
 			if (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x < ballCenterx - 100)
 			{
 				player->GetFSM()->ChangeState(KickBall::Instance());
@@ -752,6 +758,9 @@ void Dribble::Execute(FieldPlayer* player)
 			}
 		}
 
+		//if the ball is between the player and the home goal, it needs to swivel
+		// the ball around by doing multiple small kicks and turns until the player 
+		//is facing in the correct direction
 		double dot = player->Team()->HomeGoal()->Facing().Dot(player->Heading());
 
 		if (dot < 0)
@@ -760,11 +769,15 @@ void Dribble::Execute(FieldPlayer* player)
 			//and then the ball will be kicked in that direction
 			Vector2D direction = player->Heading();
 
+
+
+
 			//calculate the sign (+/-) of the angle between the player heading and the 
 			//facing direction of the goal so that the player rotates around in the 
 			//correct direction
 			double angle = QuarterPi * -1 *
 				player->Team()->HomeGoal()->Facing().Sign(player->Heading());
+
 
 			Vec2DRotateAroundOrigin(direction, angle);
 
@@ -879,7 +892,71 @@ void ReceiveBall::Exit(FieldPlayer* player)
 
 
 
- 
+
+//***************************************************************************** Mark
+
+Mark* Mark::Instance()
+{
+	static Mark instance;
+
+	return &instance;
+}
 
 
+void Mark::Enter(FieldPlayer* player)
+{
+#ifdef PLAYER_STATE_INFO_ON
+	debug_con << "Player " << player->ID() << " enters mark state" << "";
+#endif
 
+	//if the game is not on make sure the target is the center of the player's
+	//home region. This is ensure all the players are in the correct positions
+	//ready for kick off
+	if (!player->Pitch()->GameOn())
+	{
+		player->Steering()->SetTarget(player->HomeRegion()->Center());
+	}
+}
+
+void Mark::Execute(FieldPlayer* player)
+{
+	if (!player->Team()->InControl())
+	{
+		if (player->Role() == player->defender && player->Team()->isOpponentWithinRadius(player->Team()->HomeGoal()->Center(), 300))
+		{
+			PlayerBase * playerToMark = player->Team()->getOpponentWithinRadius(player->Team()->HomeGoal()->Center(), 300);
+
+			player->Steering()->SetTarget(playerToMark->Pos());
+			static double ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
+
+			//if a defender and the ball is on the home side of the pitch, all should chase
+			if (player->Team()->Color() == 1 && player->Pitch()->Ball()->Pos().x < ballCenterx - 100)
+			{
+				player->GetFSM()->ChangeState(ChaseBall::Instance());
+				return;
+
+			}
+			else if (player->Team()->Color() == 0 && player->Pitch()->Ball()->Pos().x > ballCenterx + 100)
+			{
+				player->GetFSM()->ChangeState(ChaseBall::Instance());
+				return;
+			}
+
+
+			player->Steering()->ArriveOn();
+
+			return;
+
+
+		}
+		else
+		{
+			player->Steering()->SetTarget(player->HomeRegion()->Center());
+			player->GetFSM()->ChangeState(Wait::Instance());
+
+		}
+	}
+
+}
+
+void Mark::Exit(FieldPlayer* player) {}

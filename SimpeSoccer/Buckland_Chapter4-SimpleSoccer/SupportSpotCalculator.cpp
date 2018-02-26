@@ -124,6 +124,21 @@ Vector2D SupportSpotCalculator::DetermineBestSupportingPosition()
                              (OptimalDistance-temp)/OptimalDistance;  
       }
     }
+
+
+	//Test 4. test if the player is in front
+	if (m_pTeam->ControllingPlayer()->isAheadOfAttacker())
+	{
+		curSpot->m_dScore += 0.5f;
+	}
+
+	//Test 5. test if spot is surrounded
+	for (int i = 0; i < m_pTeam->getNumOpponentWithinRadius(curSpot->m_vPos, 100); i++)
+	{
+		curSpot->m_dScore -= 0.2f;
+	}
+
+
     
     //check to see if this spot has the highest score so far
     if (curSpot->m_dScore > BestScoreSoFar)

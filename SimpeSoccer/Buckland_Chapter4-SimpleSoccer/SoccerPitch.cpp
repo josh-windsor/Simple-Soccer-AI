@@ -77,6 +77,11 @@ SoccerPitch::SoccerPitch(int cx, int cy):m_cxClient(cx),
   m_vecWalls.push_back(Wall2D(BottomRight, BottomLeft));
 
   GlobalParamLoader* p = GlobalParamLoader::Instance();
+
+
+
+
+
 }
 
 //-------------------------------- dtor ----------------------------------
@@ -117,6 +122,7 @@ void SoccerPitch::Update()
   m_pRedTeam->Update();
   m_pBlueTeam->Update();
 
+
   //if a goal has been detected reset the pitch ready for kickoff
   if (m_pBlueGoal->Scored(m_pBall) || m_pRedGoal->Scored(m_pBall))
   {
@@ -156,8 +162,8 @@ void SoccerPitch::CreateRegions(double width, double height)
 bool SoccerPitch::Render()
 {
   //draw the grass
-  gdi->DarkGreenPen();
-  gdi->DarkGreenBrush();
+  gdi->LightBlueBrush();
+  gdi->LightBlueBrush();
   gdi->Rect(0,0,m_cxClient, m_cyClient);
 
   //render regions
@@ -215,11 +221,15 @@ void SoccerPitch::SetDifficulty(bool redTeam, int difficulty)
 {
 	if (redTeam)
 	{
+		m_pRedTeam->difficultyLevel = difficulty;
+		difficulty += 3;
 		m_pRedTeam->m_pParamFile = difficultyFiles[difficulty];
+
 
 	}
 	else
 	{
+		m_pBlueTeam->difficultyLevel = difficulty;
 		m_pBlueTeam->m_pParamFile = difficultyFiles[difficulty];
 
 	}
