@@ -956,6 +956,12 @@ void Mark::Execute(FieldPlayer* player)
 
 		}
 	}
+	else
+	{
+		player->Steering()->SetTarget(player->HomeRegion()->Center());
+		player->GetFSM()->ChangeState(Wait::Instance());
+
+	}
 
 }
 

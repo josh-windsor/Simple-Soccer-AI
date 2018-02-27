@@ -35,7 +35,7 @@ class PlayerBase : public MovingEntity,
 
 public:
   
-  enum player_role{goal_keeper, attacker, defender};
+  enum player_role{goal_keeper, attacker, defender, referee};
 
 protected:
 
@@ -44,6 +44,9 @@ protected:
 
   //a pointer to this player's team
   SoccerTeam*             m_pTeam;
+
+  //pointer to pitch for ref
+  SoccerPitch*             m_pPitch;
  
   //the steering behaviors
   SteeringBehaviors*      m_pSteering;
@@ -68,18 +71,32 @@ protected:
 public:
 
 
-  PlayerBase(SoccerTeam*    home_team,
-			 int            home_region,
-			 Vector2D       heading,
-			 Vector2D       velocity,
-			 double          mass,
-			 double          max_force,
-			 double          max_speed,
-			 double          max_turn_rate,
-			 double          scale,
-			 player_role    role,
-			 double			 max_stamina
-  );
+	PlayerBase(SoccerTeam*    home_team,
+		int            home_region,
+		Vector2D       heading,
+		Vector2D       velocity,
+		double          mass,
+		double          max_force,
+		double          max_speed,
+		double          max_turn_rate,
+		double          scale,
+		player_role    role,
+		double			 max_stamina
+	);
+	//Alternative constructor for the ref which doesnt have a team
+	PlayerBase(SoccerPitch*    pitch,
+		Vector2D       heading,
+		Vector2D       velocity,
+		double          mass,
+		double          max_force,
+		double          max_speed,
+		double          max_turn_rate,
+		double          scale,
+		player_role    role,
+		Vector2D		startPos
+	);
+
+
 
   virtual ~PlayerBase();
 
@@ -149,11 +166,11 @@ public:
   void        SetDefaultHomeRegion(){m_iHomeRegion = m_iDefaultRegion;}
 
   SoccerBall* const        Ball()const;
-  SoccerPitch* const       Pitch()const;
   SteeringBehaviors*const  Steering()const{return m_pSteering;}
   const Region* const      HomeRegion()const;
   void                     SetHomeRegion(int NewRegion){m_iHomeRegion = NewRegion;}
-  SoccerTeam*const         Team()const{return m_pTeam;}
+  SoccerTeam*const         Team()const { return m_pTeam; }
+  SoccerPitch*const			Pitch()const{return m_pPitch;}
   
 
 

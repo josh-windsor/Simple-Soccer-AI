@@ -29,6 +29,7 @@ class SoccerTeam;
 class SoccerBall;
 class SoccerTeam;
 class PlayerBase;
+class Referee;
 
 
 class SoccerPitch
@@ -48,6 +49,9 @@ public:
 
   //defines the dimensions of the playing area
   Region*              m_pPlayingArea;
+
+  //ref pointer
+  Referee*			m_pReferee;
 
 
 

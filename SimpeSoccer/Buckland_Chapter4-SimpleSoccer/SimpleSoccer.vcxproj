@@ -148,6 +148,8 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <ClCompile Include="Referee.cpp" />
+    <ClCompile Include="RefereeStates.cpp" />
     <ClCompile Include="SoccerPitch.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -242,6 +244,8 @@
     <ClInclude Include="GlobalParamLoader.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="AIParamLoader.h" />
+    <ClInclude Include="Referee.h" />
+    <ClInclude Include="RefereeStates.h" />
     <ClInclude Include="SoccerPitch.h" />
     <ClInclude Include="SoccerTeam.h" />
     <ClInclude Include="SteeringBehaviors.h" />

@@ -1,5 +1,7 @@
 #include "SoccerPitch.h"
 #include "SoccerBall.h"
+#include "Referee.h"
+#include "RefereeStates.h"
 #include "Goal.h"
 #include "Common/Game/Region.h"
 #include "Common/2D/Transformations.h"
@@ -79,6 +81,19 @@ SoccerPitch::SoccerPitch(int cx, int cy):m_cxClient(cx),
   GlobalParamLoader* p = GlobalParamLoader::Instance();
 
 
+  m_pReferee = new Referee(GlobalRefereeState::Instance(),
+	  Vector2D(0, -1),
+	  Vector2D(0.0, 0.0),
+	  3.0f,
+	  1.0f,
+	  1.6f,
+	  0.4f,
+	  1.0f,
+	  Vector2D((double)m_cxClient / 2.0, (((double)m_cyClient / 2.0) + 100.0)),
+	  this
+  );
+
+
 
 
 
@@ -97,6 +112,8 @@ SoccerPitch::~SoccerPitch()
   delete m_pBlueGoal;
 
   delete m_pPlayingArea;
+
+  delete m_pReferee;
 
   for (unsigned int i=0; i<m_Regions.size(); ++i)
   {
@@ -121,6 +138,8 @@ void SoccerPitch::Update()
   //update the teams
   m_pRedTeam->Update();
   m_pBlueTeam->Update();
+
+  m_pReferee->Update();
 
 
   //if a goal has been detected reset the pitch ready for kickoff
@@ -199,6 +218,9 @@ bool SoccerPitch::Render()
   //Render the teams
   m_pRedTeam->Render();
   m_pBlueTeam->Render(); 
+
+  m_pReferee->Render();
+
 
   //render the walls
   gdi->WhitePen();
