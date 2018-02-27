@@ -191,10 +191,12 @@ void ChaseBall::Execute(FieldPlayer* player)
 	
 	return;
   }
+  //gets the center of the screen, the half way line
   static double ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
 
   if (!player->Team()->InControl())
   {
+	  //depending on the team side, determine if the ball is on the home side and intercept
 	  if (player->Team()->Color() == 1 && (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x < ballCenterx - 100))
 	  {
 		  player->Steering()->SetTarget(player->Ball()->Pos());
@@ -402,6 +404,7 @@ void Fatigued::Enter(FieldPlayer* player)
 
 void Fatigued::Execute(FieldPlayer* player)
 {
+	//if the player doesnt have full stamina, regain until full
 	if (player->m_dStaminaRemaining < player->m_dMaxStamina && player->Pitch()->GameOn())
 	{
 		player->m_dStaminaRemaining += 0.04;
@@ -583,15 +586,10 @@ void KickBall::Execute(FieldPlayer* player)
   //directly the ball is ahead, the more forceful the kick
   double power = Prm.MaxShootingForce * dot;
 
-  static const double eighthStamina = player->m_dMaxStamina / 8;
   static const double quartStamina = player->m_dMaxStamina / 4;
   static const double halfStamina = player->m_dMaxStamina / 2;
-
-  if (player->m_dStaminaRemaining <= eighthStamina)
-  {
-	  power /= 8;
-  }
-  else if (player->m_dStaminaRemaining <= quartStamina)
+  //reduces the total power of the shot depending on the level of stamina
+  if (player->m_dStaminaRemaining <= quartStamina)
   {
 	  power /= 4;
   }
@@ -639,11 +637,7 @@ void KickBall::Execute(FieldPlayer* player)
 
   power = Prm.MaxPassingForce * dot;
 
-  if (player->m_dStaminaRemaining <= eighthStamina)
-  {
-	  power /= 8;
-  }
-  else if (player->m_dStaminaRemaining <= quartStamina)
+  if (player->m_dStaminaRemaining <= quartStamina)
   {
 	  power /= 4;
   }
@@ -696,13 +690,14 @@ void KickBall::Execute(FieldPlayer* player)
   else
   {   
 	  player->FindSupport();
-	  
+	  // if the player is close to the opponents goal then wait for support if it cannot shoot
 	  if (player->DistToOppGoal() < 200)
 	  {
 		  player->GetFSM()->ChangeState(Wait::Instance());
 	  }
 	  else
 	  {
+		  //dribbles furthur upfield
 		  player->GetFSM()->ChangeState(Dribble::Instance());
 	  }
 
@@ -732,6 +727,7 @@ void Dribble::Enter(FieldPlayer* player)
 
 void Dribble::Execute(FieldPlayer* player)
 {
+	//checks if the player is threatened and panick pass to a support
 	if (player->isThreatened())
 	{
 		player->GetFSM()->ChangeState(KickBall::Instance());
@@ -742,7 +738,7 @@ void Dribble::Execute(FieldPlayer* player)
 		static double ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
 		if (player->Team()->Color() == 0)
 		{
-			double i = player->Pitch()->Ball()->Pos().x;
+			//checks if the defender should pass the ball upward when approaching the middle line 
 			if (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x < ballCenterx - 100)
 			{
 				player->GetFSM()->ChangeState(KickBall::Instance());
@@ -922,11 +918,15 @@ void Mark::Execute(FieldPlayer* player)
 {
 	if (!player->Team()->InControl())
 	{
+		//checks if there is any opponent players close to the goal
 		if (player->Role() == player->defender && player->Team()->isOpponentWithinRadius(player->Team()->HomeGoal()->Center(), 300))
 		{
+			//gets the player who is close to the goal
 			PlayerBase * playerToMark = player->Team()->getOpponentWithinRadius(player->Team()->HomeGoal()->Center(), 300);
-
+			
+			//sets the player to follow
 			player->Steering()->SetTarget(playerToMark->Pos());
+
 			static double ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
 
 			//if a defender and the ball is on the home side of the pitch, all should chase

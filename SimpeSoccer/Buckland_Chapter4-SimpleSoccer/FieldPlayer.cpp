@@ -121,9 +121,10 @@ void FieldPlayer::Update()
   double speed = m_vVelocity.Length();
 
 
-
+  //Determines if the player is moving
   if (speed > 0.6)
   {
+	  //reduces the stamina if it has some left
 	  if (m_dStaminaRemaining > 0)
 	  {
 		  m_dStaminaRemaining -= 0.01;
@@ -131,6 +132,7 @@ void FieldPlayer::Update()
   }
   else if (speed < 0.3)
   {
+	  //regains stamina if below a certain speed
 	  if (m_dStaminaRemaining < m_dMaxStamina)
 	  {
 		  m_dStaminaRemaining += 0.01;
@@ -139,6 +141,7 @@ void FieldPlayer::Update()
   static const double eighthStamina = m_dMaxStamina / 8;
   static const double quartStamina = m_dMaxStamina / 4;
   static const double halfStamina = m_dMaxStamina / 2;
+  //reduces the velocity the lower the stamina is
   if (m_dStaminaRemaining <= eighthStamina)
   {
 	  //the player has run out of stamina and so will wait

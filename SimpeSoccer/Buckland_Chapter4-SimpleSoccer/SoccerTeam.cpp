@@ -873,7 +873,7 @@ bool SoccerTeam::isOpponentWithinRadius(Vector2D pos, double rad)
 }
 //----------------------------- getOpponentWithinRadius ------------------------
 //
-//  Gets the first player closest to the position
+//  Gets the first player close to the position
 //-----------------------------------------------------------------------------
 PlayerBase* SoccerTeam::getOpponentWithinRadius(Vector2D pos, double rad)
 {
@@ -890,9 +890,9 @@ PlayerBase* SoccerTeam::getOpponentWithinRadius(Vector2D pos, double rad)
 
 	return nullptr;
 }
-//----------------------------- getOpponentWithinRadius ------------------------
+//----------------------------- getNumOpponentWithinRadius ------------------------
 //
-//  Gets the first player closest to the position
+//  returns the number of players within this radius
 //-----------------------------------------------------------------------------
 int SoccerTeam::getNumOpponentWithinRadius(Vector2D pos, double rad)
 {
