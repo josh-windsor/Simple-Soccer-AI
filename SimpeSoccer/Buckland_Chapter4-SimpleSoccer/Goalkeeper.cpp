@@ -100,13 +100,13 @@ void GoalKeeper::Update()
 bool GoalKeeper::BallWithinRangeForIntercept()const
 {
   return (Vec2DDistanceSq(Team()->HomeGoal()->Center(), Ball()->Pos()) <=
-	  m_pTeam->m_pParamFile->GoalKeeperInterceptRangeSq);
+	  m_pTeam->m_pPlayerParamFile->GoalKeeperInterceptRangeSq);
 }
 
 bool GoalKeeper::TooFarFromGoalMouth()const
 {
   return (Vec2DDistanceSq(Pos(), GetRearInterposeTarget()) >
-	  m_pTeam->m_pParamFile->GoalKeeperInterceptRangeSq);
+	  m_pTeam->m_pPlayerParamFile->GoalKeeperInterceptRangeSq);
 }
 
 Vector2D GoalKeeper::GetRearInterposeTarget()const

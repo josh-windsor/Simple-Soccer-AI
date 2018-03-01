@@ -26,7 +26,8 @@ SoccerTeam::SoccerTeam(Goal*        home_goal,
 					   Goal*        opponents_goal,
 					   SoccerPitch* pitch,
 					   team_color   color,
-						AIParamLoader* params):m_pOpponentsGoal(opponents_goal),
+						AIParamLoader* params,
+						AIParamTeamLoader* teamParams):m_pOpponentsGoal(opponents_goal),
 										   m_pHomeGoal(home_goal),
 										   m_pOpponents(NULL),
 										   m_pPitch(pitch),
@@ -36,7 +37,8 @@ SoccerTeam::SoccerTeam(Goal*        home_goal,
 										   m_pReceivingPlayer(NULL),
 										   m_pControllingPlayer(NULL),
 										   m_pPlayerClosestToBall(NULL),
-											m_pParamFile(params)
+											m_pPlayerParamFile(params),
+											m_pTeamParamFile(teamParams)
 {
   //setup the state machine
   m_pStateMachine = new StateMachine<SoccerTeam>(this);
@@ -128,22 +130,26 @@ void SoccerTeam::CalculateClosestPlayerToBall()
 	static float ballCenterx = (double)Pitch()->m_cxClient / 2.0;
 
 	//depending on side
-	if (m_Color == 0)
+	if ((*it)->Team()->m_pTeamParamFile->StateTactics)
 	{
-		//If the player is an attacker and the ball is in their home side then dont chase
-		//If the player is a defender and the ball is in their oponents home side then dont chase
-		if ((*it)->Role() == (*it)->defender && Pitch()->Ball()->Pos().x < ballCenterx || (*it)->Role() == (*it)->attacker && Pitch()->Ball()->Pos().x > ballCenterx + 100)
+		if (m_Color == 0)
 		{
-			continue;
+			//If the player is an attacker and the ball is in their home side then don't chase
+			//If the player is a defender and the ball is in their opponents home side then don't chase
+			if ((*it)->Role() == (*it)->defender && Pitch()->Ball()->Pos().x < ballCenterx || (*it)->Role() == (*it)->attacker && Pitch()->Ball()->Pos().x > ballCenterx + 100)
+			{
+				continue;
+			}
+		}
+		else
+		{
+			if ((*it)->Role() == (*it)->defender && Pitch()->Ball()->Pos().x > ballCenterx || (*it)->Role() == (*it)->attacker && Pitch()->Ball()->Pos().x < ballCenterx - 100)
+			{
+				continue;
+			}
 		}
 	}
-	else
-	{
-		if ((*it)->Role() == (*it)->defender && Pitch()->Ball()->Pos().x > ballCenterx || (*it)->Role() == (*it)->attacker && Pitch()->Ball()->Pos().x < ballCenterx - 100)
-		{
-			continue;
-		}
-	}
+
 	//if a player is fatigued, can't chase
 	if ((*it)->Role() != (*it)->goal_keeper && dynamic_cast<FieldPlayer*>(*it)->GetFSM()->CurrentState() == Fatigued::Instance())
 	{
@@ -445,7 +451,7 @@ bool SoccerTeam::CanShoot(Vector2D  BallPos,
 						  Vector2D& ShotTarget)const
 {
   //the number of randomly created shot targets this method will test 
-  int NumAttempts = m_pParamFile->NumAttemptsToFindValidStrike;
+  int NumAttempts = m_pPlayerParamFile->NumAttemptsToFindValidStrike;
 
   while (NumAttempts--)
   {
@@ -604,12 +610,12 @@ void SoccerTeam::CreatePlayers()
 							   TendGoal::Instance(),
 							   Vector2D(0,1),
 							   Vector2D(0.0, 0.0),
-							m_pParamFile->PlayerMass,
-							m_pParamFile->PlayerMaxForce,
-							m_pParamFile->PlayerMaxSpeedWithoutBall,
-							m_pParamFile->PlayerMaxTurnRate,
-							m_pParamFile->PlayerScale,
-							m_pParamFile->PlayerMaxStamina));
+							m_pPlayerParamFile->PlayerMass,
+							m_pPlayerParamFile->PlayerMaxForce,
+							m_pPlayerParamFile->PlayerMaxSpeedWithoutBall,
+							m_pPlayerParamFile->PlayerMaxTurnRate,
+							m_pPlayerParamFile->PlayerScale,
+							m_pPlayerParamFile->PlayerMaxStamina));
  
 	//create the players
 	m_Players.push_back(new FieldPlayer(this,
@@ -617,13 +623,13 @@ void SoccerTeam::CreatePlayers()
 							   Wait::Instance(),
 							   Vector2D(0,1),
 							   Vector2D(0.0, 0.0),
-								m_pParamFile->PlayerMass,
-								m_pParamFile->PlayerMaxForce,
-								m_pParamFile->PlayerMaxSpeedWithoutBall,
-								m_pParamFile->PlayerMaxTurnRate,
-								m_pParamFile->PlayerScale,
+								m_pPlayerParamFile->PlayerMass,
+								m_pPlayerParamFile->PlayerMaxForce,
+								m_pPlayerParamFile->PlayerMaxSpeedWithoutBall,
+								m_pPlayerParamFile->PlayerMaxTurnRate,
+								m_pPlayerParamFile->PlayerScale,
 							   PlayerBase::attacker,
-								m_pParamFile->PlayerMaxStamina));
+								m_pPlayerParamFile->PlayerMaxStamina));
 
 
 
@@ -632,13 +638,13 @@ void SoccerTeam::CreatePlayers()
 							   Wait::Instance(),
 							   Vector2D(0,1),
 							   Vector2D(0.0, 0.0),
-							   m_pParamFile->PlayerMass,
-							   m_pParamFile->PlayerMaxForce,
-							   m_pParamFile->PlayerMaxSpeedWithoutBall,
-							   m_pParamFile->PlayerMaxTurnRate,
-							   m_pParamFile->PlayerScale,
+							   m_pPlayerParamFile->PlayerMass,
+							   m_pPlayerParamFile->PlayerMaxForce,
+							   m_pPlayerParamFile->PlayerMaxSpeedWithoutBall,
+							   m_pPlayerParamFile->PlayerMaxTurnRate,
+							   m_pPlayerParamFile->PlayerScale,
 							   PlayerBase::attacker,
-								m_pParamFile->PlayerMaxStamina));
+							   m_pPlayerParamFile->PlayerMaxStamina));
 
 
  
@@ -649,13 +655,13 @@ void SoccerTeam::CreatePlayers()
 							   Wait::Instance(),
 							   Vector2D(0,1),
 							   Vector2D(0.0, 0.0),
-							   m_pParamFile->PlayerMass,
-							   m_pParamFile->PlayerMaxForce,
-							   m_pParamFile->PlayerMaxSpeedWithoutBall,
-							   m_pParamFile->PlayerMaxTurnRate,
-							   m_pParamFile->PlayerScale,
+							   m_pPlayerParamFile->PlayerMass,
+							   m_pPlayerParamFile->PlayerMaxForce,
+							   m_pPlayerParamFile->PlayerMaxSpeedWithoutBall,
+							   m_pPlayerParamFile->PlayerMaxTurnRate,
+							   m_pPlayerParamFile->PlayerScale,
 							   PlayerBase::defender,
-								m_pParamFile->PlayerMaxStamina));
+								m_pPlayerParamFile->PlayerMaxStamina));
 
 
 		m_Players.push_back(new FieldPlayer(this,
@@ -663,13 +669,13 @@ void SoccerTeam::CreatePlayers()
 							   Wait::Instance(),
 							   Vector2D(0,1),
 							   Vector2D(0.0, 0.0),
-							   m_pParamFile->PlayerMass,
-							   m_pParamFile->PlayerMaxForce,
-							   m_pParamFile->PlayerMaxSpeedWithoutBall,
-							   m_pParamFile->PlayerMaxTurnRate,
-							   m_pParamFile->PlayerScale,
+							   m_pPlayerParamFile->PlayerMass,
+							   m_pPlayerParamFile->PlayerMaxForce,
+							   m_pPlayerParamFile->PlayerMaxSpeedWithoutBall,
+							   m_pPlayerParamFile->PlayerMaxTurnRate,
+							   m_pPlayerParamFile->PlayerScale,
 							  PlayerBase::defender,
-								m_pParamFile->PlayerMaxStamina));
+								m_pPlayerParamFile->PlayerMaxStamina));
 
   }
 
@@ -682,12 +688,12 @@ void SoccerTeam::CreatePlayers()
 							   TendGoal::Instance(),
 							   Vector2D(0,-1),
 							   Vector2D(0.0, 0.0),
-							   m_pParamFile->PlayerMass,
-							   m_pParamFile->PlayerMaxForce,
-							   m_pParamFile->PlayerMaxSpeedWithoutBall,
-							   m_pParamFile->PlayerMaxTurnRate,
-							   m_pParamFile->PlayerScale,
-							   m_pParamFile->PlayerMaxStamina));
+							   m_pPlayerParamFile->PlayerMass,
+							   m_pPlayerParamFile->PlayerMaxForce,
+							   m_pPlayerParamFile->PlayerMaxSpeedWithoutBall,
+							   m_pPlayerParamFile->PlayerMaxTurnRate,
+							   m_pPlayerParamFile->PlayerScale,
+							   m_pPlayerParamFile->PlayerMaxStamina));
 
 
 	//create the players
@@ -696,26 +702,26 @@ void SoccerTeam::CreatePlayers()
 							   Wait::Instance(),
 							   Vector2D(0,-1),
 							   Vector2D(0.0, 0.0),
-							   m_pParamFile->PlayerMass,
-							   m_pParamFile->PlayerMaxForce,
-							   m_pParamFile->PlayerMaxSpeedWithoutBall,
-							   m_pParamFile->PlayerMaxTurnRate,
-							   m_pParamFile->PlayerScale,
+							   m_pPlayerParamFile->PlayerMass,
+							   m_pPlayerParamFile->PlayerMaxForce,
+							   m_pPlayerParamFile->PlayerMaxSpeedWithoutBall,
+							   m_pPlayerParamFile->PlayerMaxTurnRate,
+							   m_pPlayerParamFile->PlayerScale,
 							   PlayerBase::attacker,
-							   m_pParamFile->PlayerMaxStamina));
+								m_pPlayerParamFile->PlayerMaxStamina));
 
 	m_Players.push_back(new FieldPlayer(this,
 							   11,
 							   Wait::Instance(),
 							   Vector2D(0,-1),
 							   Vector2D(0.0, 0.0),
-							   m_pParamFile->PlayerMass,
-							   m_pParamFile->PlayerMaxForce,
-							   m_pParamFile->PlayerMaxSpeedWithoutBall,
-							   m_pParamFile->PlayerMaxTurnRate,
-							   m_pParamFile->PlayerScale,
+							   m_pPlayerParamFile->PlayerMass,
+							   m_pPlayerParamFile->PlayerMaxForce,
+							   m_pPlayerParamFile->PlayerMaxSpeedWithoutBall,
+							   m_pPlayerParamFile->PlayerMaxTurnRate,
+							   m_pPlayerParamFile->PlayerScale,
 							   PlayerBase::attacker,
-							   m_pParamFile->PlayerMaxStamina));
+								m_pPlayerParamFile->PlayerMaxStamina));
 
 
  
@@ -724,13 +730,13 @@ void SoccerTeam::CreatePlayers()
 							   Wait::Instance(),
 							   Vector2D(0,-1),
 							   Vector2D(0.0, 0.0),
-							   m_pParamFile->PlayerMass,
-							   m_pParamFile->PlayerMaxForce,
-							   m_pParamFile->PlayerMaxSpeedWithoutBall,
-							   m_pParamFile->PlayerMaxTurnRate,
-							   m_pParamFile->PlayerScale,
+							   m_pPlayerParamFile->PlayerMass,
+							   m_pPlayerParamFile->PlayerMaxForce,
+							   m_pPlayerParamFile->PlayerMaxSpeedWithoutBall,
+							   m_pPlayerParamFile->PlayerMaxTurnRate,
+							   m_pPlayerParamFile->PlayerScale,
 							   PlayerBase::defender,
-							   m_pParamFile->PlayerMaxStamina));
+								m_pPlayerParamFile->PlayerMaxStamina));
 
 
 	m_Players.push_back(new FieldPlayer(this,
@@ -738,13 +744,13 @@ void SoccerTeam::CreatePlayers()
 							   Wait::Instance(),
 							   Vector2D(0,-1),
 							   Vector2D(0.0, 0.0),
-							   m_pParamFile->PlayerMass,
-							   m_pParamFile->PlayerMaxForce,
-							   m_pParamFile->PlayerMaxSpeedWithoutBall,
-							   m_pParamFile->PlayerMaxTurnRate,
-							   m_pParamFile->PlayerScale,
+							   m_pPlayerParamFile->PlayerMass,
+							   m_pPlayerParamFile->PlayerMaxForce,
+							   m_pPlayerParamFile->PlayerMaxSpeedWithoutBall,
+							   m_pPlayerParamFile->PlayerMaxTurnRate,
+							   m_pPlayerParamFile->PlayerScale,
 							   PlayerBase::defender,
-							   m_pParamFile->PlayerMaxStamina));
+								m_pPlayerParamFile->PlayerMaxStamina));
 					  
   }
 

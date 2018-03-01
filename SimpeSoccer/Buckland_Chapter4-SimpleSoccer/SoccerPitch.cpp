@@ -58,8 +58,14 @@ SoccerPitch::SoccerPitch(int cx, int cy):m_cxClient(cx),
   difficultyFiles[3] = new AIParamLoader("ParamBEasy.ini");
   difficultyFiles[4] = new AIParamLoader("ParamBMedium.ini");
   difficultyFiles[5] = new AIParamLoader("ParamBHard.ini");
-  m_pRedTeam  = new SoccerTeam(m_pRedGoal, m_pBlueGoal, this, SoccerTeam::red, difficultyFiles[1]);
-  m_pBlueTeam = new SoccerTeam(m_pBlueGoal, m_pRedGoal, this, SoccerTeam::blue, difficultyFiles[4]);
+  teamDifficultyFiles[0] = new AIParamTeamLoader("ParamATeamEasy.ini");
+  teamDifficultyFiles[1] = new AIParamTeamLoader("ParamATeamMedium.ini");
+  teamDifficultyFiles[2] = new AIParamTeamLoader("ParamATeamHard.ini");
+  teamDifficultyFiles[3] = new AIParamTeamLoader("ParamBTeamEasy.ini");
+  teamDifficultyFiles[4] = new AIParamTeamLoader("ParamBTeamMedium.ini");
+  teamDifficultyFiles[5] = new AIParamTeamLoader("ParamBTeamHard.ini");
+  m_pRedTeam  = new SoccerTeam(m_pRedGoal, m_pBlueGoal, this, SoccerTeam::red, difficultyFiles[1], teamDifficultyFiles[1]);
+  m_pBlueTeam = new SoccerTeam(m_pBlueGoal, m_pRedGoal, this, SoccerTeam::blue, difficultyFiles[4], teamDifficultyFiles[4]);
 
   //make sure each team knows who their opponents are
   m_pRedTeam->SetOpponents(m_pBlueTeam);
@@ -245,14 +251,15 @@ void SoccerPitch::SetDifficulty(bool redTeam, int difficulty)
 	{
 		m_pRedTeam->difficultyLevel = difficulty;
 		difficulty += 3;
-		m_pRedTeam->m_pParamFile = difficultyFiles[difficulty];
-
+		m_pRedTeam->m_pPlayerParamFile = difficultyFiles[difficulty];
+		m_pRedTeam->m_pTeamParamFile = teamDifficultyFiles[difficulty];
 
 	}
 	else
 	{
 		m_pBlueTeam->difficultyLevel = difficulty;
-		m_pBlueTeam->m_pParamFile = difficultyFiles[difficulty];
+		m_pBlueTeam->m_pPlayerParamFile = difficultyFiles[difficulty];
+		m_pBlueTeam->m_pTeamParamFile = teamDifficultyFiles[difficulty];
 
 	}
 }

@@ -21,6 +21,7 @@
 #include "SupportSpotCalculator.h"
 #include "Common/FSM/StateMachine.h"
 #include "AIParamLoader.h"
+#include "AIParamTeamLoader.h"
 
 class Goal;
 class PlayerBase;
@@ -38,7 +39,8 @@ class SoccerTeam
 public:
   
   enum team_color {blue, red};
-  AIParamLoader* m_pParamFile;
+  AIParamLoader* m_pPlayerParamFile;
+  AIParamTeamLoader* m_pTeamParamFile;
 
 
 private:
@@ -93,7 +95,8 @@ public:
 			 Goal*        opponents_goal,
 			 SoccerPitch* pitch,
 			 team_color   color,
-			AIParamLoader* params);
+			AIParamLoader* params,
+			AIParamTeamLoader* teamParams);
 
   ~SoccerTeam();
 
@@ -229,5 +232,4 @@ public:
   std::string Name()const{if (m_Color == blue) return "Blue"; return "Red";}
 
 };
-
 #endif

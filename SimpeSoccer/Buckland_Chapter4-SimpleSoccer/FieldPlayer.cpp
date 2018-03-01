@@ -67,7 +67,7 @@ FieldPlayer::FieldPlayer(SoccerTeam* home_team,
   m_pSteering->SeparationOn();
 
   //set up the kick regulator
-  m_pKickLimiter = new Regulator(home_team->m_pParamFile->PlayerKickFrequency);
+  m_pKickLimiter = new Regulator(home_team->m_pPlayerParamFile->PlayerKickFrequency);
 }
 
 //------------------------------ Update ----------------------------------
@@ -96,7 +96,7 @@ void FieldPlayer::Update()
   //can only turn by PlayerMaxTurnRate rads per update.
   double TurningForce =   m_pSteering->SideComponent();
 
-  Clamp(TurningForce, -m_pTeam->m_pParamFile->PlayerMaxTurnRate, m_pTeam->m_pParamFile->PlayerMaxTurnRate);
+  Clamp(TurningForce, -m_pTeam->m_pPlayerParamFile->PlayerMaxTurnRate, m_pTeam->m_pPlayerParamFile->PlayerMaxTurnRate);
 
   //rotate the heading vector
   Vec2DRotateAroundOrigin(m_vHeading, TurningForce);

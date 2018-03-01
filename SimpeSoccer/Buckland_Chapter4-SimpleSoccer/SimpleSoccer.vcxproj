@@ -240,6 +240,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AIParamTeamLoader.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="GlobalParamLoader.h" />
     <ClInclude Include="Goal.h" />
@@ -288,8 +289,14 @@
   <ItemGroup>
     <None Include="icon1.ico" />
     <None Include="ParamAHard.ini" />
+    <None Include="ParamATeamEasy.ini" />
+    <None Include="ParamATeamHard.ini" />
+    <None Include="ParamATeamMedium.ini" />
     <None Include="ParamBEasy.ini" />
     <None Include="ParamBHard.ini" />
+    <None Include="ParamBTeamEasy.ini" />
+    <None Include="ParamBTeamHard.ini" />
+    <None Include="ParamBTeamMedium.ini" />
     <None Include="Params.ini" />
     <None Include="ParamAMedium.ini" />
     <None Include="ParamBMedium.ini" />

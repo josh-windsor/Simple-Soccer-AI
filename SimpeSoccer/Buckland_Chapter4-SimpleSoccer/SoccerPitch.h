@@ -117,7 +117,8 @@ public:
 
 private:
 	
-	AIParamLoader* difficultyFiles[6];
+	AIParamLoader * difficultyFiles[6];
+	AIParamTeamLoader*  teamDifficultyFiles[6];
 };
 
 #endif

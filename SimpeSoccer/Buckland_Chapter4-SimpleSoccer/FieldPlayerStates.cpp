@@ -35,12 +35,12 @@ void GlobalPlayerState::Execute(FieldPlayer* player)
   //if a player is in possession and close to the ball reduce his max speed
   if((player->BallWithinReceivingRange()) && (player->isControllingPlayer()))
   {
-	player->SetMaxSpeed(player->Team()->m_pParamFile->PlayerMaxSpeedWithBall);
+	player->SetMaxSpeed(player->Team()->m_pPlayerParamFile->PlayerMaxSpeedWithBall);
   }
 
   else
   {
-	 player->SetMaxSpeed(player->Team()->m_pParamFile->PlayerMaxSpeedWithoutBall);
+	 player->SetMaxSpeed(player->Team()->m_pPlayerParamFile->PlayerMaxSpeedWithoutBall);
   }
 	
 }
@@ -404,7 +404,7 @@ void Fatigued::Enter(FieldPlayer* player)
 
 void Fatigued::Execute(FieldPlayer* player)
 {
-	//if the player doesnt have full stamina, regain until full
+	//if the player doesn't have full stamina, regain until full
 	if (player->m_dStaminaRemaining < player->m_dMaxStamina && player->Pitch()->GameOn())
 	{
 		player->m_dStaminaRemaining += 0.04;
@@ -488,20 +488,22 @@ void Wait::Execute(FieldPlayer* player)
 	   if (!player->Team()->InControl())
 	   {
 		   //if a defender and the ball is on the home side of the pitch, all should chase
-		   if (player->Team()->Color() == 1 && (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x < ballCenterx - 100))
+		   if (player->Team()->m_pTeamParamFile->Hemming)
 		   {
-			   player->GetFSM()->ChangeState(ChaseBall::Instance());
-			   return;
+			   if (player->Team()->Color() == 1 && (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x < ballCenterx - 100))
+			   {
+				   player->GetFSM()->ChangeState(ChaseBall::Instance());
+				   return;
 
+			   }
+			   else if (player->Team()->Color() == 0 && (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x > ballCenterx + 100))
+			   {
+				   player->GetFSM()->ChangeState(ChaseBall::Instance());
+				   return;
+			   }
 		   }
-		   else if (player->Team()->Color() == 0 && (player->Role() == player->defender && player->Pitch()->Ball()->Pos().x > ballCenterx + 100))
-		   {
-			   player->GetFSM()->ChangeState(ChaseBall::Instance());
-			   return;
-		   }
-
-		   //if the there is an oponent close to the goal, mark him
-		   if (player->Role() == player->defender && player->Team()->isOpponentWithinRadius(player->Team()->HomeGoal()->Center(), 300))
+		   //if the there is an opponent close to the goal, mark him
+		   if (player->Role() == player->defender && player->Team()->isOpponentWithinRadius(player->Team()->HomeGoal()->Center(), player->Team()->m_pTeamParamFile->MarkDist))
 		   {
 			   player->GetFSM()->ChangeState(Mark::Instance());
 			   return;
@@ -605,7 +607,7 @@ void KickBall::Execute(FieldPlayer* player)
   if (player->Team()->CanShoot(player->Ball()->Pos(),
 							   power,
 							   BallTarget)                   || 
-	 (RandFloat() < player->Team()->m_pParamFile->ChancePlayerAttemptsPotShot))
+	 (RandFloat() < player->Team()->m_pPlayerParamFile->ChancePlayerAttemptsPotShot))
   {
    #ifdef PLAYER_STATE_INFO_ON
    debug_con << "Player " << player->ID() << " attempts a shot at " << BallTarget << "";
@@ -653,7 +655,7 @@ void KickBall::Execute(FieldPlayer* player)
 							  receiver,
 							  BallTarget,
 							  power,
-		  player->Team()->m_pParamFile->MinPassDist))
+		  player->Team()->m_pPlayerParamFile->MinPassDist))
   {     
 	//add some noise to the kick
 	BallTarget = AddNoiseToKick(player->Ball()->Pos(), BallTarget, player);
@@ -676,7 +678,7 @@ void KickBall::Execute(FieldPlayer* player)
 							&BallTarget);                            
    
 
-	//the player should wait at his current position unless instruced
+	//the player should wait at his current position unless instructed
 	//otherwise  
 	player->GetFSM()->ChangeState(Wait::Instance());
 
@@ -697,7 +699,7 @@ void KickBall::Execute(FieldPlayer* player)
 	  }
 	  else
 	  {
-		  //dribbles furthur upfield
+		  //dribbles further upfield
 		  player->GetFSM()->ChangeState(Dribble::Instance());
 	  }
 
@@ -727,7 +729,7 @@ void Dribble::Enter(FieldPlayer* player)
 
 void Dribble::Execute(FieldPlayer* player)
 {
-	//checks if the player is threatened and panick pass to a support
+	//checks if the player is threatened and panic pass to a support
 	if (player->isThreatened())
 	{
 		player->GetFSM()->ChangeState(KickBall::Instance());
@@ -777,7 +779,7 @@ void Dribble::Execute(FieldPlayer* player)
 
 			Vec2DRotateAroundOrigin(direction, angle);
 
-			//this value works well whjen the player is attempting to control the
+			//this value works well when the player is attempting to control the
 			//ball and turn at the same time
 			const double KickingForce = 0.8;
 
@@ -831,7 +833,7 @@ void ReceiveBall::Enter(FieldPlayer* player)
   const double PassThreatRadius = 70.0;
 
   if (( player->InHotRegion() ||
-		RandFloat() < player->Team()->m_pParamFile->ChanceOfUsingArriveTypeReceiveBehavior) &&
+		RandFloat() < player->Team()->m_pPlayerParamFile->ChanceOfUsingArriveTypeReceiveBehavior) &&
 	 !player->Team()->isOpponentWithinRadius(player->Pos(), PassThreatRadius))
   {
 	player->Steering()->ArriveOn();
@@ -919,27 +921,39 @@ void Mark::Execute(FieldPlayer* player)
 	if (!player->Team()->InControl())
 	{
 		//checks if there is any opponent players close to the goal
-		if (player->Role() == player->defender && player->Team()->isOpponentWithinRadius(player->Team()->HomeGoal()->Center(), 300))
+		if (player->Role() == player->defender && player->Team()->isOpponentWithinRadius(player->Team()->HomeGoal()->Center(), player->Team()->m_pTeamParamFile->MarkDist))
 		{
 			//gets the player who is close to the goal
-			PlayerBase * playerToMark = player->Team()->getOpponentWithinRadius(player->Team()->HomeGoal()->Center(), 300);
+			PlayerBase * playerToMark = player->Team()->getOpponentWithinRadius(player->Team()->HomeGoal()->Center(), player->Team()->m_pTeamParamFile->MarkDist);
 			
 			//sets the player to follow
 			player->Steering()->SetTarget(playerToMark->Pos());
 
 			static double ballCenterx = (double)player->Pitch()->m_cxClient / 2.0;
 
-			//if a defender and the ball is on the home side of the pitch, all should chase
-			if (player->Team()->Color() == 1 && player->Pitch()->Ball()->Pos().x < ballCenterx - 100)
+			if (player->Team()->m_pTeamParamFile->Hemming)
 			{
-				player->GetFSM()->ChangeState(ChaseBall::Instance());
-				return;
+				//if a defender and the ball is on the home side of the pitch, all should chase
+				if (player->Team()->Color() == 1 && player->Pitch()->Ball()->Pos().x < ballCenterx - 100)
+				{
+					player->GetFSM()->ChangeState(ChaseBall::Instance());
+					return;
 
+				}
+				else if (player->Team()->Color() == 0 && player->Pitch()->Ball()->Pos().x > ballCenterx + 100)
+				{
+					player->GetFSM()->ChangeState(ChaseBall::Instance());
+					return;
+				}
 			}
-			else if (player->Team()->Color() == 0 && player->Pitch()->Ball()->Pos().x > ballCenterx + 100)
+			else
 			{
-				player->GetFSM()->ChangeState(ChaseBall::Instance());
-				return;
+				if (player->isClosestTeamMemberToBall())
+				{
+					player->GetFSM()->ChangeState(ChaseBall::Instance());
+					return;
+				}
+
 			}
 
 

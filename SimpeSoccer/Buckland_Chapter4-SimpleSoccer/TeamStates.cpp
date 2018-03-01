@@ -18,7 +18,7 @@ void ChangePlayerHomeRegions(SoccerTeam* team, const int NewRegions[TeamSize])
 {
   for (int plyr=0; plyr<TeamSize; ++plyr)
   {
-    team->SetPlayerHomeRegion(plyr, NewRegions[plyr]);
+	team->SetPlayerHomeRegion(plyr, NewRegions[plyr]);
   }
 }
 
@@ -47,11 +47,11 @@ void Attacking::Enter(SoccerTeam* team)
   //set up the player's home regions
   if (team->Color() == SoccerTeam::blue)
   {
-    ChangePlayerHomeRegions(team, BlueRegions);
+	ChangePlayerHomeRegions(team, BlueRegions);
   }
   else
   {
-    ChangePlayerHomeRegions(team, RedRegions);
+	ChangePlayerHomeRegions(team, RedRegions);
   }
 
   //if a player is in either the Wait or ReturnToHomeRegion states, its
@@ -63,22 +63,26 @@ void Attacking::Enter(SoccerTeam* team)
 
 void Attacking::Execute(SoccerTeam* team)
 {
-	//check if the team is losing
-	if (team->HomeGoal()->NumGoalsScored() < team->OpponentsGoal()->NumGoalsScored())
+	if (team->m_pTeamParamFile->AdvancedFormations)
 	{
-		team->Pitch()->SetDifficulty(team->Color() == team->red, 2);
-		team->GetFSM()->ChangeState(Losing::Instance()); return;
-	}
-	//check if the team is winning
-	else if(team->HomeGoal()->NumGoalsScored() > team->OpponentsGoal()->NumGoalsScored())
-	{
-		team->Pitch()->SetDifficulty(team->Color() == team->red, 0);
-		team->GetFSM()->ChangeState(Winning::Instance()); return;
+
+		//check if the team is losing
+		if (team->HomeGoal()->NumGoalsScored() < team->OpponentsGoal()->NumGoalsScored())
+		{
+			team->Pitch()->SetDifficulty(team->Color() == team->red, 2);
+			team->GetFSM()->ChangeState(Losing::Instance()); return;
+		}
+		//check if the team is winning
+		else if (team->HomeGoal()->NumGoalsScored() > team->OpponentsGoal()->NumGoalsScored())
+		{
+			team->Pitch()->SetDifficulty(team->Color() == team->red, 0);
+			team->GetFSM()->ChangeState(Winning::Instance()); return;
+		}
 	}
   //if this team is no longer in control change states
   if (!team->InControl())
   {
-    team->GetFSM()->ChangeState(Defending::Instance()); return;
+	team->GetFSM()->ChangeState(Defending::Instance()); return;
   }
 
   //calculate the best position for any supporting attacker to move to
@@ -115,11 +119,11 @@ void Defending::Enter(SoccerTeam* team)
   //set up the player's home regions
   if (team->Color() == SoccerTeam::blue)
   {
-    ChangePlayerHomeRegions(team, BlueRegions);
+	ChangePlayerHomeRegions(team, BlueRegions);
   }
   else
   {
-    ChangePlayerHomeRegions(team, RedRegions);
+	ChangePlayerHomeRegions(team, RedRegions);
   }
   
   //if a player is in either the Wait or ReturnToHomeRegion states, its
@@ -129,21 +133,24 @@ void Defending::Enter(SoccerTeam* team)
 
 void Defending::Execute(SoccerTeam* team)
 {
-	if (team->HomeGoal()->NumGoalsScored() < team->OpponentsGoal()->NumGoalsScored())
+	if (team->m_pTeamParamFile->AdvancedFormations)
 	{
-		team->Pitch()->SetDifficulty(team->Color() == team->red, 2);
-		team->GetFSM()->ChangeState(Losing::Instance()); return;
-	}
-	else if (team->HomeGoal()->NumGoalsScored() > team->OpponentsGoal()->NumGoalsScored())
-	{
-		team->Pitch()->SetDifficulty(team->Color() == team->red, 0);
-		team->GetFSM()->ChangeState(Winning::Instance()); return;
+		if (team->HomeGoal()->NumGoalsScored() < team->OpponentsGoal()->NumGoalsScored())
+		{
+			team->Pitch()->SetDifficulty(team->Color() == team->red, 2);
+			team->GetFSM()->ChangeState(Losing::Instance()); return;
+		}
+		else if (team->HomeGoal()->NumGoalsScored() > team->OpponentsGoal()->NumGoalsScored())
+		{
+			team->Pitch()->SetDifficulty(team->Color() == team->red, 0);
+			team->GetFSM()->ChangeState(Winning::Instance()); return;
+		}
 	}
 
   //if in control change states
   if (team->InControl())
   {
-    team->GetFSM()->ChangeState(Attacking::Instance()); return;
+	team->GetFSM()->ChangeState(Attacking::Instance()); return;
   }
 }
 
@@ -176,7 +183,7 @@ void PrepareForKickOff::Execute(SoccerTeam* team)
   //if both teams in position, start the game
   if (team->AllPlayersAtHome() && team->Opponents()->AllPlayersAtHome())
   {
-    team->GetFSM()->ChangeState(Defending::Instance());
+	team->GetFSM()->ChangeState(Defending::Instance());
   }
 }
 
@@ -222,16 +229,30 @@ void Winning::Enter(SoccerTeam* team)
 
 void Winning::Execute(SoccerTeam* team)
 {
-	//if in control change states
-	if (team->HomeGoal()->NumGoalsScored() < team->OpponentsGoal()->NumGoalsScored())
+	if (team->m_pTeamParamFile->AdvancedFormations)
 	{
-		team->Pitch()->SetDifficulty(team->Color() == team->red, 2);
-		team->GetFSM()->ChangeState(Losing::Instance()); return;
-	}
-	else if(team->HomeGoal()->NumGoalsScored() == team->OpponentsGoal()->NumGoalsScored())
-	{
-		team->Pitch()->SetDifficulty(team->Color() == team->red, 1);
 		//if in control change states
+		if (team->HomeGoal()->NumGoalsScored() < team->OpponentsGoal()->NumGoalsScored())
+		{
+			team->Pitch()->SetDifficulty(team->Color() == team->red, 2);
+			team->GetFSM()->ChangeState(Losing::Instance()); return;
+		}
+		else if (team->HomeGoal()->NumGoalsScored() == team->OpponentsGoal()->NumGoalsScored())
+		{
+			team->Pitch()->SetDifficulty(team->Color() == team->red, 1);
+			//if in control change states
+			if (team->InControl())
+			{
+				team->GetFSM()->ChangeState(Attacking::Instance()); return;
+			}
+			else
+			{
+				team->GetFSM()->ChangeState(Defending::Instance()); return;
+			}
+		}
+	}
+	else
+	{
 		if (team->InControl())
 		{
 			team->GetFSM()->ChangeState(Attacking::Instance()); return;
@@ -240,6 +261,7 @@ void Winning::Execute(SoccerTeam* team)
 		{
 			team->GetFSM()->ChangeState(Defending::Instance()); return;
 		}
+
 	}
 }
 
@@ -282,17 +304,31 @@ void Losing::Enter(SoccerTeam* team)
 
 void Losing::Execute(SoccerTeam* team)
 {
-	//if in control change states
-	if (team->HomeGoal()->NumGoalsScored() > team->OpponentsGoal()->NumGoalsScored())
+	if (team->m_pTeamParamFile->AdvancedFormations)
 	{
-		team->Pitch()->SetDifficulty(team->Color() == team->red, 0);
-		team->GetFSM()->ChangeState(Winning::Instance()); return;
-	}
-	else if (team->HomeGoal()->NumGoalsScored() == team->OpponentsGoal()->NumGoalsScored())
-	{
-		team->Pitch()->SetDifficulty(team->Color() == team->red, 1);
-
 		//if in control change states
+		if (team->HomeGoal()->NumGoalsScored() > team->OpponentsGoal()->NumGoalsScored())
+		{
+			team->Pitch()->SetDifficulty(team->Color() == team->red, 0);
+			team->GetFSM()->ChangeState(Winning::Instance()); return;
+		}
+		else if (team->HomeGoal()->NumGoalsScored() == team->OpponentsGoal()->NumGoalsScored())
+		{
+			team->Pitch()->SetDifficulty(team->Color() == team->red, 1);
+
+			//if in control change states
+			if (team->InControl())
+			{
+				team->GetFSM()->ChangeState(Attacking::Instance()); return;
+			}
+			else
+			{
+				team->GetFSM()->ChangeState(Defending::Instance()); return;
+			}
+		}
+	}
+	else
+	{
 		if (team->InControl())
 		{
 			team->GetFSM()->ChangeState(Attacking::Instance()); return;

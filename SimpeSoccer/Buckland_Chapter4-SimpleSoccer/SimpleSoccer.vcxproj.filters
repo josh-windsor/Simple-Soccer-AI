@@ -239,6 +239,9 @@
     <ClInclude Include="RefereeStates.h">
       <Filter>States and State Machine</Filter>
     </ClInclude>
+    <ClInclude Include="AIParamTeamLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="icon1.ico">
@@ -263,6 +266,24 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="ParamBHard.ini">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ParamATeamEasy.ini">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ParamATeamMedium.ini">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ParamATeamHard.ini">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ParamBTeamEasy.ini">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ParamBTeamMedium.ini">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ParamBTeamHard.ini">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

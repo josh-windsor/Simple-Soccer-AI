@@ -16,7 +16,7 @@
 Vector2D AddNoiseToKick(Vector2D BallPos, Vector2D BallTarget, FieldPlayer* player)
 {
 
-  double displacement = (Pi - Pi* player->Team()->m_pParamFile->PlayerKickingAccuracy) * RandomClamped();
+  double displacement = (Pi - Pi* player->Team()->m_pPlayerParamFile->PlayerKickingAccuracy) * RandomClamped();
 
   Vector2D toTarget = BallTarget - BallPos;
 

@@ -68,7 +68,7 @@ LRESULT CALLBACK WindowProc (HWND   hwnd,
 		//created
 	case WM_CREATE:
 	  {
-		 //to get get the size of the client window first we need  to create
+		 //to get the size of the client window first we need  to create
 		 //a RECT and then ask Windows to fill in our RECT structure with
 		 //the client window size. Then we assign to cxClient and cyClient 
 		 //accordingly
